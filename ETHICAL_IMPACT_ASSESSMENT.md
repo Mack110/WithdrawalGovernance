@@ -1,3 +1,9 @@
+# Legacy Status
+
+This document is retained as archival background from a pre-v1.0 working phase.
+
+It is not the authoritative ethics narrative for the frozen 299-case final study. Use `README.md`, `methods/METHODS.md`, `INTEGRITY_LOG.md`, and the manuscript-specific disclosure statements instead.
+
 # Ethical Impact Assessment: Withdrawal as a First-Class Control Primitive
 
 **Experiment ID:** withdrawal-governance-experiment v0.1  
@@ -312,9 +318,7 @@ The primary value of this experiment is **methodological**: it demonstrates a re
 
 ## Sign-Off
 
-| Role | Name | Date | Signature |
-|---|---|---|---|
-| Principal Investigator | [To be filled] | [To be filled] | [To be filled] |
-| Reviewer | [To be filled] | [To be filled] | [To be filled] |
-| Research Operator | [To be filled] | [To be filled] | [To be filled] |
+This archival document is preserved for historical context only and has no live sign-off fields in the frozen reviewer package.
+
+For submission-facing ethics disclosures, use the finalized statements derived from `README.md`, `methods/METHODS.md`, and `INTEGRITY_LOG.md`.
 

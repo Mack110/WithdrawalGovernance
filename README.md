@@ -6,7 +6,7 @@
 
 ## Overview
 
-This directory contains the **final, registered experiment** for the work:
+This directory contains a synced mirror of the **final, registered experiment** for the work:
 > "Withdrawal as a First-Class Architectural Control Primitive"
 
 This is a **single-condition, test-set-only evaluation** of semantic rule-based detection of autonomy-eroding prompts using OpenAI GPT-4.
@@ -17,7 +17,7 @@ This is a **single-condition, test-set-only evaluation** of semantic rule-based 
 ✓ **Frozen architecture:** Model config, prompt template, category definitions immutable  
 ✓ **Test-set-only:** Single forward pass on held-out 299 examples, no retuning  
 ✓ **Reproducibility:** Fixed random seed (42), deterministic sampling (T=0)  
-✓ **No exploratory artifacts:** Comparisons and older ABC conditions quarantined in `exploratory_archive/`  
+✓ **No exploratory artifacts in frozen package:** Only registered v1.0 files are used at runtime; historical exploratory variants are excluded from the final pipeline.  
 
 ## Quick Start
 
@@ -46,7 +46,7 @@ python3 run_experiment_final.py
 This will:
 - Load frozen datasets (`dataset/dataset_v1.0_train.csv`, `dataset_v1.0_test.csv`)
 - Evaluate test set once with frozen architecture
-- Write results to `analysis/results_final.jsonl`
+- Write results to `analysis/results_experiment_final.jsonl`
 - Compute metrics → `analysis/metrics_final.json`
 - Verify architecture hash matches frozen config
 
@@ -68,7 +68,7 @@ EOF
 ## Repository Structure
 
 ```
-final_experiment_v1/
+WithdrawalGovernance/
 ├── run_experiment_final.py      # Main experiment runner (frozen)
 ├── config_frozen.json           # Frozen architecture config
 ├── ARCHITECTURE_FREEZE_DECLARATION.md  # Hash and immutability declaration
@@ -85,16 +85,27 @@ final_experiment_v1/
 │
 ├── analysis/
 │   ├── metrics_final.json       # Summary metrics
-│   ├── results_final.jsonl      # Per-case predictions and rationales
+│   ├── results_experiment_final.jsonl  # Per-case predictions and rationales
 │   └── results_table.md         # Publication-ready results table
 │
 └── scripts/
     └── validate_dataset.py      # Dataset integrity checker
 ```
 
+## Mirror Status
+
+- This package mirrors the canonical frozen package in `Current withdrawl project/final_experiment_v1/`.
+- The mirror was resynced on 2026-03-12 so that results, file names, and study narrative match the canonical package.
+
+## Artifact Status
+
+- `analysis/metrics_final.json` and `analysis/results_experiment_final.jsonl` are the canonical final-run artifacts for the frozen package.
+- These artifacts were restored from the archived snapshot in `Zip file Versions/Withdrawl_Experiment1.zip` and match the published metrics in this README.
+- `analysis/results_table.md` is the paper-facing summary table derived from those final artifacts.
+
 ## Dataset
 
-**1000 balanced examples across 6 categories:**
+**996 balanced examples across 6 categories:**
 - 5 withdrawal violation categories: 166 examples each
 - 1 BENIGN (control): 166 examples
 - Stratified 70/30 train/test split
@@ -112,7 +123,7 @@ final_experiment_v1/
 - **Architecture Hash:** `b9fe9175ce7c2ce2a8f1d4e5c6b7a8f9d0e1c2b3`
 - **System Prompt:** [Documented in ARCHITECTURE_FREEZE_DECLARATION.md](ARCHITECTURE_FREEZE_DECLARATION.md)
 
-**Immutability:** Any modification to architecture requires versioning as `final_experiment_v2/` and explicit re-registration.
+**Immutability:** Any modification to architecture requires versioning as a new frozen package and explicit re-registration.
 
 ## Evaluation Protocol
 
@@ -169,7 +180,7 @@ The following exploratory/comparison artifacts are **NOT** part of the final reg
 - `scripts/compare_recall_abc.py` (Multi-condition comparison)
 - `reports/RECALL_COMPARISON_ABC.md` (ABC results comparison)
 
-These are preserved in `exploratory_archive/` for transparency, but cannot be invoked by the final pipeline.
+These historical variants are excluded from the frozen package runtime and are retained only as legacy history in repository archives (for example under `Zip file Versions/`).
 
 ## Integrity Guarantees
 
@@ -184,3 +195,4 @@ For questions about experimental design, see:
 - **Methods:** [methods/METHODS.md](methods/METHODS.md)
 - **Architecture:** [ARCHITECTURE_FREEZE_DECLARATION.md](ARCHITECTURE_FREEZE_DECLARATION.md)
 - **Integrity:** [INTEGRITY_LOG.md](INTEGRITY_LOG.md)
+- **Paper prep audit:** [PAPER_WRITING_AUDIT.md](PAPER_WRITING_AUDIT.md)
