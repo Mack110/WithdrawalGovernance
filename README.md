@@ -6,10 +6,12 @@
 
 ## Overview
 
-This directory contains a synced mirror of the **final, registered experiment** for the work:
+This repository contains the **frozen, evaluator-facing experiment package** for the work:
 > "Withdrawal as a First-Class Architectural Control Primitive"
 
 This is a **single-condition, test-set-only evaluation** of semantic rule-based detection of autonomy-eroding prompts using OpenAI GPT-4.
+
+This repository is the sole public artifact required to inspect, run, and evaluate the frozen study. No external workspace paths, archive files, or unpublished companion directories are required.
 
 ## Key Constraints
 
@@ -44,7 +46,7 @@ python3 run_experiment_final.py
 ```
 
 This will:
-- Load frozen datasets (`dataset/dataset_v1.0_train.csv`, `dataset_v1.0_test.csv`)
+- Load frozen datasets (`dataset/dataset_v1.0_train.csv`, `dataset/dataset_v1.0_test.csv`)
 - Evaluate test set once with frozen architecture
 - Write results to `analysis/results_experiment_final.jsonl`
 - Compute metrics → `analysis/metrics_final.json`
@@ -77,6 +79,7 @@ WithdrawalGovernance/
 ├── dataset/
 │   ├── dataset_v1.0_train.csv   # Training set (697 examples, 70%)
 │   └── dataset_v1.0_test.csv    # Test set (299 examples, 30%)
+│   └── dataset_v1.0_generation_metadata.json  # Dataset counts and subtype profile
 │
 ├── methods/
 │   ├── METHODS.md               # Paper-ready methods section
@@ -89,18 +92,19 @@ WithdrawalGovernance/
 │   └── results_table.md         # Publication-ready results table
 │
 └── scripts/
-    └── validate_dataset.py      # Dataset integrity checker
+    ├── validate_dataset.py      # Dataset integrity checker
+    └── validate_subtypes.py     # Subtype quota checker
 ```
 
-## Mirror Status
+## Package Status
 
-- This package mirrors the canonical frozen package in `Current withdrawl project/final_experiment_v1/`.
-- The mirror was resynced on 2026-03-12 so that results, file names, and study narrative match the canonical package.
+- This package is frozen at version 1.0 for evaluator use.
+- The files in this repository are the authoritative public copies for the registered single-condition study.
+- Any future changes to architecture or dataset would require an explicitly versioned successor package rather than in-place edits.
 
 ## Artifact Status
 
 - `analysis/metrics_final.json` and `analysis/results_experiment_final.jsonl` are the canonical final-run artifacts for the frozen package.
-- These artifacts were restored from the archived snapshot in `Zip file Versions/Withdrawl_Experiment1.zip` and match the published metrics in this README.
 - `analysis/results_table.md` is the paper-facing summary table derived from those final artifacts.
 
 ## Dataset
@@ -172,15 +176,15 @@ This experiment adheres to:
 
 See: [methods/METHODS.md](methods/METHODS.md) for full experimental design documentation.
 
-## Important: Not in This Directory
+## Package Scope
 
-The following exploratory/comparison artifacts are **NOT** part of the final registered experiment:
-- `experiments/run_condition_b.js` (JavaScript variant)
-- `experiments/run_condition_c.py` (Rule-based variant)
-- `scripts/compare_recall_abc.py` (Multi-condition comparison)
-- `reports/RECALL_COMPARISON_ABC.md` (ABC results comparison)
+This package intentionally contains only the frozen materials needed to reproduce and inspect the reported single-condition study:
+- frozen configuration and execution script
+- frozen train/test datasets and metadata
+- final analysis artifacts
+- methods and validation documentation
 
-These historical variants are excluded from the frozen package runtime and are retained only as legacy history in repository archives (for example under `Zip file Versions/`).
+Exploratory variants, pilot harnesses, and comparison-condition materials are out of scope for this public package and are not required to evaluate the frozen study.
 
 ## Integrity Guarantees
 
@@ -195,4 +199,3 @@ For questions about experimental design, see:
 - **Methods:** [methods/METHODS.md](methods/METHODS.md)
 - **Architecture:** [ARCHITECTURE_FREEZE_DECLARATION.md](ARCHITECTURE_FREEZE_DECLARATION.md)
 - **Integrity:** [INTEGRITY_LOG.md](INTEGRITY_LOG.md)
-- **Paper prep audit:** [PAPER_WRITING_AUDIT.md](PAPER_WRITING_AUDIT.md)

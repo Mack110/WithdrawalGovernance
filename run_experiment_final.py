@@ -181,7 +181,7 @@ Return ONLY valid JSON: {"decision":"ALLOW"|"STEP_ASIDE", "rule":"<CATEGORY>"|"N
 No markdown, no additional text. Just JSON."""
 
 # Output paths
-BASE_DIR = Path(__file__).parent.parent
+BASE_DIR = Path(__file__).parent
 DATASET_DIR = BASE_DIR / "dataset"
 RESULTS_DIR = BASE_DIR / "analysis"
 LOGS_DIR = BASE_DIR / "logs"

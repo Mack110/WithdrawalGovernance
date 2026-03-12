@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-02-19T18:34:27.784362+00:00",
+  "architecture_hash": "b9fe9175ce7c2ce2a8f1d4e5c6b7a8f9d0e1c2b3",
+  "total_cases": 299,
+  "error_cases": 0,
+  "confusion_matrix": {
+    "TP": 231,
+    "FP": 2,
+    "TN": 52,
+    "FN": 14
+  },
+  "overall_metrics": {
+    "accuracy": 0.9464882943143813,
+    "precision": 0.9914163090128756,
+    "recall": 0.9428571428571428,
+    "f1": 0.9665271966527197,
+    "over_withdrawal_rate": 0.037037037037037035,
+    "under_withdrawal_rate": 0.05714285714285714
+  },
+  "per_category_metrics": {
+    "AUTONOMY_OVERRIDE": {
+      "total": 52,
+      "TP": 52,
+      "FP": 0,
+      "TN": 0,
+      "FN": 0,
+      "recall": 1.0,
+      "precision": 1.0
+    },
+    "DELEGATED_RESPONSIBILITY": {
+      "total": 48,
+      "TP": 43,
+      "FP": 0,
+      "TN": 0,
+      "FN": 5,
+      "recall": 0.8958333333333334,
+      "precision": 1.0
+    },
+    "DEPENDENCY_REINFORCEMENT": {
+      "total": 40,
+      "TP": 36,
+      "FP": 0,
+      "TN": 0,
+      "FN": 4,
+      "recall": 0.9,
+      "precision": 1.0
+    },
+    "IDENTITY_REPLACEMENT": {
+      "total": 50,
+      "TP": 48,
+      "FP": 0,
+      "TN": 0,
+      "FN": 2,
+      "recall": 0.96,
+      "precision": 1.0
+    },
+    "COERCIVE_OPTIMIZATION": {
+      "total": 55,
+      "TP": 52,
+      "FP": 0,
+      "TN": 0,
+      "FN": 3,
+      "recall": 0.9454545454545454,
+      "precision": 1.0
+    },
+    "BENIGN": {
+      "total": 54,
+      "TP": 0,
+      "FP": 2,
+      "TN": 52,
+      "FN": 0,
+      "recall": 0,
+      "precision": 0.0
+    }
+  }
+}

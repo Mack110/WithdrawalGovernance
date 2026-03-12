@@ -1,5 +1,5 @@
 # Dataset Quality Assurance Report
-**Generated:** 2026-02-19T18:59:02.645371+00:00
+**Generated:** 2026-03-12T22:46:54.731345+00:00
 **Dataset Version:** 1.0
 **Random Seed:** 42
 
@@ -10,7 +10,7 @@
 ### Validation Checks
 
 - ✓ All 6 expected categories present
-- ⚠ Stratification variance: DEPENDENCY_REINFORCEMENT: 4.7% difference, COERCIVE_OPTIMIZATION: 2.5% difference
+- ⚠ Stratification variance: COERCIVE_OPTIMIZATION: 2.5% difference, DEPENDENCY_REINFORCEMENT: 4.7% difference
 - ✓ All test categories have ≥30 examples (stable per-category metrics)
 - ✓ Correct train/test split: 697 train, 299 test
 - ✓ Withdrawal-heavy label distribution: 83.9% STEP_ASIDE in train

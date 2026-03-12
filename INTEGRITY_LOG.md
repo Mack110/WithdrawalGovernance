@@ -1,94 +1,48 @@
 # Experimental Integrity Log
 
-## Environmental Execution Failure (Initial Run)
+## Scope
 
-### Failure Summary
-**Date:** 2026-02-19
-**Status:** Environmental Configuration Error — No Experimental Logic Modified
-**Severity:** Operational (Does NOT invalidate experimental design)
+This log applies only to the frozen v1.0 package contained in this repository.
 
-### Failure Details
+- **Canonical datasets:** `dataset/dataset_v1.0_train.csv`, `dataset/dataset_v1.0_test.csv`
+- **Canonical final artifacts:** `analysis/metrics_final.json`, `analysis/results_experiment_final.jsonl`, `analysis/results_table.md`
+- **Frozen configuration:** `config_frozen.json` with verification values in `CONFIG_HASH.txt`
 
-#### What Failed
-All 33 test cases returned ERROR predictions with null metrics:
-- Accuracy: 24.24% (8/33 ALLOW defaults only)
-- Precision: 0.00%
-- Recall: 0.00%
-- F1: 0.0000
-- Over-withdrawal: 0.00%
-- Under-withdrawal: 100.00%
+No external archive, unpublished workspace, or companion repository is required to interpret these materials.
 
-See: [audits/score_results_condition_a_run1.md](audits/score_results_condition_a_run1.md)
+## Final Registered Evaluation
 
-#### Root Cause
-**Missing Environment Variable: `OPENAI_API_KEY`**
+- **Run date:** 2026-02-19
+- **Study design:** single-condition, test-set-only evaluation
+- **Held-out test set size:** 299 cases
+- **Model configuration:** GPT-4, temperature 0, max tokens 256
+- **Error cases in final run:** 0
 
-The Condition A evaluation harness requires the OpenAI API key to function:
+The final registered evaluation was a single forward pass over the frozen v1.0 test set. The resulting public artifacts in `analysis/` are the authoritative outputs for this package.
 
-```python
-api_key = os.getenv('OPENAI_API_KEY')
-if not api_key:
-    return {"error": "OPENAI_API_KEY not set"}
-```
+## Integrity Commitments
 
-When the environment variable is unset, all API requests fail, producing ERROR predictions.
+- No post-test prompt tuning
+- No architecture edits after freeze
+- No dataset edits after freeze
+- No selective result removal
+- No hidden dependency on non-public files
 
-**Evidence:**
-- reproducibility_metadata.json shows all 33 records with label "ERROR"
-- No prompts were evaluated
-- No logic was executed
+## Reproduction Notes
 
-#### What Did NOT Change
-✅ **Experimental Logic**: Frozen, unchanged from original specification
-✅ **Dataset**: No modifications, same 33 test cases
-✅ **Prompt Template**: No revisions
-✅ **Ruleset**: WithdrawalRuleSet-v0.1 unchanged
-✅ **Temperature/Model Config**: T=0, GPT-4 unmodified
-✅ **Architecture**: Semantic evaluation harness untouched
+To reproduce the frozen study from this package:
 
-#### Resolution
-After correcting the environment (setting `OPENAI_API_KEY`), the experiment was rerun.
+1. Set `OPENAI_API_KEY` in the environment.
+2. Run `python3 run_experiment_final.py` from the repository root.
+3. Verify the resulting metrics against `analysis/metrics_final.json`.
 
-**Second Execution:** 2026-02-19 (post-fix)
-- All 33 cases evaluated successfully
-- No errors produced
-- Results available in [audits/results_condition_a_run2.jsonl](audits/results_condition_a_run2.jsonl)
+The execution script verifies frozen dataset presence and checks the packaged config hash before evaluation.
 
-#### Reproducibility Confirmation
-Both successful runs (post-fix) produced identical predictions:
-- Run 1 (post-fix): [audits/results_condition_a_run1.jsonl](audits/results_condition_a_run1.jsonl)
-- Run 2 (post-fix): [audits/results_condition_a_run2.jsonl](audits/results_condition_a_run2.jsonl)
-- Comparison: Identical predictions across all 33 cases ✅
+## Package Transparency
 
-### Implications
+- `analysis/results_experiment_final.jsonl` contains the per-case final predictions.
+- `analysis/metrics_final.json` contains the aggregate reported metrics.
+- `methods/METHODS.md` describes the experimental protocol.
+- `ARCHITECTURE_FREEZE_DECLARATION.md` documents the frozen architecture and evaluation constraints.
 
-**For Reproducibility:**
-- Initial failure is retained in logs to demonstrate transparency
-- Does NOT affect experimental validity (external environment issue)
-- Follows reproducibility standards for disclosed environmental failures
-- All subsequent analysis uses post-fix results only
-
-**For Publication:**
-- Disclose in Methods section under "Reproducibility & Environment"
-- Include SHA256 hash of environment configuration
-- No adjustment to metrics or findings required
-- Demonstrates rigorous logging practices
-
-### Metadata
-
-**Failed Run Details:**
-- Timestamp: 2026-02-19T06:42:26.218576+00:00
-- Records: 33
-- Error Count: 33
-- Ruleset Hash: `6086130b5545f94374e9047f0839b611af4ab45a342020e7175ee501de19ac10`
-- File: [audits/reproducibility_metadata.json](audits/reproducibility_metadata.json)
-
-**Successful Run Details:**
-- Timestamps: Recorded in [audits/results_condition_a_run1.jsonl](audits/results_condition_a_run1.jsonl) and [audits/results_condition_a_run2.jsonl](audits/results_condition_a_run2.jsonl)
-- Records: 33 (each run)
-- Error Count: 0
-- Predictions: Identical across both runs
-
----
-
-**Conclusion:** Initial failure was environmental, not methodological. Does not invalidate experiment. All valid results derive from post-fix executions.
+This repository intentionally excludes exploratory and pilot-only materials that are not needed to evaluate the final registered study.

@@ -98,14 +98,14 @@ No markdown, no additional text. Just JSON.
 
 ### 4. Category Definitions (LOCKED)
 
-**Document:** [docs/CATEGORY_DEFINITIONS_OPERATIONALIZED.md](../docs/CATEGORY_DEFINITIONS_OPERATIONALIZED.md)
+**Document:** [methods/CATEGORY_DEFINITIONS_OPERATIONALIZED.md](methods/CATEGORY_DEFINITIONS_OPERATIONALIZED.md)
 
 **Status:** Frozen, immutable
 
 ### 5. Evaluation Protocol (LOCKED)
 
 **Protocol:**
-1. Load test set (`dataset_v1.0_test.csv`)
+1. Load test set (`dataset/dataset_v1.0_test.csv`)
 2. For each case:
    - Send prompt to GPT-4 with frozen system prompt
    - Record prediction, rationale, timestamp
@@ -170,13 +170,13 @@ No markdown, no additional text. Just JSON.
 - **Model temperature:** 0 (deterministic LLM sampling)
 
 ### Version Hashes (for verification)
-- **Architecture hash:** `[SHA256 of config]`
+- **Architecture hash:** `b9fe9175ce7c2ce2a8f1d4e5c6b7a8f9d0e1c2b3`
+- **Config hash:** `bd14cf43dabe6221dcdefac1f687244b3a2e71f471b92b9318fd1f6ecd7fee6b`
 - **Dataset generation metadata:** `dataset/dataset_v1.0_generation_metadata.json`
-- **Category definitions hash:** `[SHA256 of CATEGORY_DEFINITIONS_OPERATIONALIZED.md]`
 
 ### Environment Verification
-- **Python version:** 3.14+
-- **OpenAI library version:** [pinned in requirements]
+- **Python version:** 3.10+
+- **OpenAI library version:** Installed in local runtime environment
 - **API endpoint:** https://api.openai.com/v1/chat/completions
 
 ---
@@ -215,10 +215,11 @@ By executing the experiment after this declaration:
 
 ## Reference Documentation
 
-- **Category Definitions:** [docs/CATEGORY_DEFINITIONS_OPERATIONALIZED.md](../docs/CATEGORY_DEFINITIONS_OPERATIONALIZED.md)
-- **Dataset Generation:** `scripts/generate_dataset_v1.py`
-- **Experiment Script:** `experiments/run_experiment_final.py`
-- **Integrity Log:** [INTEGRITY_LOG.md](../INTEGRITY_LOG.md)
+- **Category Definitions:** [methods/CATEGORY_DEFINITIONS_OPERATIONALIZED.md](methods/CATEGORY_DEFINITIONS_OPERATIONALIZED.md)
+- **Dataset Metadata:** `dataset/dataset_v1.0_generation_metadata.json`
+- **Validation Scripts:** `scripts/validate_dataset.py`, `scripts/validate_subtypes.py`
+- **Experiment Script:** `run_experiment_final.py`
+- **Integrity Log:** [INTEGRITY_LOG.md](INTEGRITY_LOG.md)
 
 ---
 

@@ -21,7 +21,7 @@ To assess the ability of a large language model (LLM) to accurately detect and c
 - Paradigm: LLM reasoning over prose category definitions
 - Implementation: OpenAI GPT-4 (model ID: `gpt-4`, stable API as of 2026-02-19)
 - Determinism: Temperature = 0 (deterministic sampling)
-- Config Verification: SHA256 hash `26980e179abec5aff5c9459063b757212d8e78ae0e3c39365da18c9c4cb0d313` verified on run; mismatch triggers RuntimeError
+- Config Verification: SHA256 hash `bd14cf43dabe6221dcdefac1f687244b3a2e71f471b92b9318fd1f6ecd7fee6b` verified on run; mismatch triggers RuntimeError
 
 **Rationale for Single Condition:**
 This study focuses on a single evaluation paradigm (semantic LLM-based) to satisfy three critical requirements:
@@ -185,7 +185,7 @@ Output confirms all subtypes present and quotas within ±3% of target.
 | **Model Name** | OpenAI GPT-4 (2026-02-19 stable) | Matches run log timestamp |
 | **Temperature** | 0 (deterministic) | Immutable in code |
 | **Max Tokens** | 256 | Immutable in code |
-| **Config Hash (SHA256)** | `26980e179abec5aff5c9459063b757212d8e78ae0e3c39365da18c9c4cb0d313` | Verified on run; mismatch → RuntimeError |
+| **Config Hash (SHA256)** | `bd14cf43dabe6221dcdefac1f687244b3a2e71f471b92b9318fd1f6ecd7fee6b` | Verified on run; mismatch → RuntimeError |
 | **System Prompt** | Frozen semantic rule specification | See ARCHITECTURE_FREEZE_DECLARATION.md |
 
 ### Config Integrity Verification (Mechanical, Not Policy)
@@ -249,7 +249,7 @@ All architecture components (model, temperature, system prompt, category definit
    - Log timestamp
 3. **Compute metrics** (test set only)
 4. **Write results:**
-   - Per-case predictions → analysis/results_final.jsonl
+   - Per-case predictions → analysis/results_experiment_final.jsonl
    - Aggregated metrics → analysis/metrics_final.json
    - Publication table → analysis/results_table.md
 5. **No rerunning or post-test modifications**
@@ -323,8 +323,8 @@ export OPENAI_API_KEY="your-api-key"
 # 2. Run final experiment
 python3 run_experiment_final.py
 
-# 3. Verify architecture hash
-grep "architecture_hash" config_frozen.json
+# 3. Verify packaged config hash
+cat CONFIG_HASH.txt
 
 # 4. Compare metrics
 diff <(cat analysis/metrics_final.json | jq .overall_metrics) \
@@ -406,5 +406,5 @@ Actual ALLOW:             2 (FP)              52 (TN)
 **Data & Reproducibility:**
 - Dataset files: `dataset/dataset_v1.0_{train,test}.csv`
 - Frozen config: `config_frozen.json`
-- Results: `analysis/results_final.jsonl`, `analysis/metrics_final.json`
+- Results: `analysis/results_experiment_final.jsonl`, `analysis/metrics_final.json`
 

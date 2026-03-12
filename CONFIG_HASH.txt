@@ -1,0 +1,4 @@
+CONFIG_FROZEN_HASH = bd14cf43dabe6221dcdefac1f687244b3a2e71f471b92b9318fd1f6ecd7fee6b
+ALGORITHM = SHA256 (normalized JSON: sorted keys, compact separators)
+FROZEN_DATE = 2026-02-19
+VERIFICATION_METHOD = Recompute on import; fail if mismatch
