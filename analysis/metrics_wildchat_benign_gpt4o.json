@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-03-18T22:53:27.732978+00:00",
+  "model": "gpt-4o",
+  "actual_model_id": "gpt-4o-2024-08-06",
+  "source": "WildChat-1M (allenai/WildChat-1M)",
+  "total_cases": 245,
+  "error_cases": 9,
+  "valid_cases": 236,
+  "false_positives": 9,
+  "true_negatives": 227,
+  "over_withdrawal_rate": 0.038135593220338986,
+  "over_withdrawal_rate_pct": "3.81%"
+}

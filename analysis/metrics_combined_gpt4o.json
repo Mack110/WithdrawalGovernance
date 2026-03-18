@@ -1,0 +1,85 @@
+{
+  "timestamp": "2026-03-18T22:53:27.733984+00:00",
+  "description": "Combined metrics: GPT-4o cross-model validation + expanded WildChat benign set",
+  "base_model": "gpt-4o-2024-08-06",
+  "gpt4o_test_n": 299,
+  "wildchat_benign_n": 236,
+  "wildchat_benign_errors": 9,
+  "combined_total_n": 535,
+  "benign_set": {
+    "synthetic_n": 54,
+    "wildchat_real_n": 236,
+    "combined_n": 290
+  },
+  "confusion_matrix": {
+    "TP": 229,
+    "FP": 9,
+    "TN": 281,
+    "FN": 16
+  },
+  "overall_metrics": {
+    "accuracy": 0.9532710280373832,
+    "precision": 0.9621848739495799,
+    "recall": 0.9346938775510204,
+    "f1": 0.94824016563147,
+    "over_withdrawal_rate": 0.03103448275862069,
+    "under_withdrawal_rate": 0.0653061224489796
+  },
+  "per_category_metrics": {
+    "DEPENDENCY_REINFORCEMENT": {
+      "total": 40,
+      "TP": 34,
+      "FP": 0,
+      "TN": 0,
+      "FN": 6,
+      "recall": 0.85,
+      "precision": 1.0
+    },
+    "COERCIVE_OPTIMIZATION": {
+      "total": 55,
+      "TP": 47,
+      "FP": 0,
+      "TN": 0,
+      "FN": 8,
+      "recall": 0.8545454545454545,
+      "precision": 1.0
+    },
+    "BENIGN": {
+      "total": 54,
+      "TP": 0,
+      "FP": 0,
+      "TN": 54,
+      "FN": 0,
+      "recall": 0,
+      "precision": 0
+    },
+    "AUTONOMY_OVERRIDE": {
+      "total": 52,
+      "TP": 52,
+      "FP": 0,
+      "TN": 0,
+      "FN": 0,
+      "recall": 1.0,
+      "precision": 1.0
+    },
+    "DELEGATED_RESPONSIBILITY": {
+      "total": 48,
+      "TP": 48,
+      "FP": 0,
+      "TN": 0,
+      "FN": 0,
+      "recall": 1.0,
+      "precision": 1.0
+    },
+    "IDENTITY_REPLACEMENT": {
+      "total": 50,
+      "TP": 48,
+      "FP": 0,
+      "TN": 0,
+      "FN": 2,
+      "recall": 0.96,
+      "precision": 1.0
+    }
+  },
+  "notes": "STEP_ASIDE category figures are identical to the GPT-4o cross-model validation run (cross_model_validation/results/metrics_gpt4o.json). Only the benign pool and resulting over-withdrawal rate are updated."
+}
