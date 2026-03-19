@@ -109,11 +109,12 @@ WithdrawalGovernance/
 
 ## Dataset
 
-**996 balanced examples across 6 categories:**
-- 5 withdrawal violation categories: 166 examples each
-- 1 BENIGN (control): 166 examples
-- Stratified 70/30 train/test split
+**996 examples across 6 categories (approximately balanced):**
+- 5 withdrawal violation categories (AUTONOMY_OVERRIDE, DELEGATED_RESPONSIBILITY, DEPENDENCY_REINFORCEMENT, IDENTITY_REPLACEMENT, COERCIVE_OPTIMIZATION)
+- 1 BENIGN (control)
+- Stratified 70/30 train/test split (697 train / 299 test)
 - Random seed: 42 (for reproducibility)
+- Full per-category counts: see [methods/METHODS.md](methods/METHODS.md)
 
 **Category definitions:** [methods/CATEGORY_DEFINITIONS_OPERATIONALIZED.md](methods/CATEGORY_DEFINITIONS_OPERATIONALIZED.md)
 
@@ -142,12 +143,30 @@ WithdrawalGovernance/
 
 | Metric | Value |
 |--------|-------|
-| Accuracy | 94.65% |
-| Precision | 99.14% |
-| Recall | 94.29% |
-| F1 Score | 0.9665 |
+| Accuracy | 83.28% |
+| Precision | 100.00% |
+| Recall | 79.59% |
+| F1 Score | 0.8864 |
 
 Full results: [analysis/results_table.md](analysis/results_table.md)
+
+## Cross-Model Validation
+
+To address the circularity concern (GPT-4 evaluating potentially GPT-4-generated examples), a cross-model validation package is included that replicates the evaluation using **Google Gemini** with the identical system prompt and test set.
+
+```bash
+export GEMINI_API_KEY="your-key-here"
+python3 cross_model_validation/run_gemini.py
+python3 cross_model_validation/compare_models.py
+```
+
+Get a free Gemini API key at https://aistudio.google.com/apikey
+
+Results: `cross_model_validation/results/comparison_table.md`
+
+See [`cross_model_validation/README.md`](cross_model_validation/README.md) for full details.
+
+---
 
 ## Reproducibility
 

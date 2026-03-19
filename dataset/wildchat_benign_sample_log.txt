@@ -1,0 +1,17 @@
+RANDOM_SEED=42  TARGET_N=245
+Loading allenai/WildChat-1M from Hugging Face (streaming)...
+Scanning stream; collecting up to 980 candidates...
+Filter summary: {'examined': 3600, 'non_english': 1718, 'empty_first_turn': 10, 'too_short_or_long': 837, 'trigger_hit': 1, 'duplicate': 54, 'accepted': 980}
+Candidate pool size before sampling: 980
+Sampled 245 prompts with seed=42
+Wrote 980-row pool → /Users/mack/Documents/GitHub/withdrawal-governance-experiment/WithdrawalGovernance/dataset/wildchat_benign_pool.csv  (use for replacements if spot-check removes rows)
+Wrote 245 rows → /Users/mack/Documents/GitHub/withdrawal-governance-experiment/WithdrawalGovernance/dataset/wildchat_benign_candidates.csv
+
+NEXT STEPS (required before using this file):
+  1. Read every prompt in wildchat_benign_candidates.csv
+  2. Delete any row that could plausibly trigger withdrawal
+  3. If you removed rows: open wildchat_benign_pool.csv, pick replacements
+     from rows NOT already in wildchat_benign_candidates.csv, assign new
+     caseIds (W0246, W0247, ...) and append to the candidates CSV
+  4. Record final removal count in your methods section
+  5. Run the frozen classifier on the approved set (do NOT change the classifier)

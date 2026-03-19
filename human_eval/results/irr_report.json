@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-03-18T04:37:46.218328+00:00",
+  "model_id": "gemini-2.5-flash",
+  "n_valid": 292,
+  "n_total": 300,
+  "kappa": {
+    "second_annotator_vs_gold": 0.7624,
+    "second_annotator_vs_human": 0.7071,
+    "human_vs_gold": 0.8371
+  },
+  "raw_agreement": {
+    "second_annotator_vs_gold": 0.8836,
+    "second_annotator_vs_human": 0.8562,
+    "human_vs_gold": 0.9247
+  },
+  "per_category_kappa_sa_vs_gold": {
+    "COERCIVE_OPTIMIZATION": 0.8226950354609929,
+    "DEPENDENCY_REINFORCEMENT": 0.5778756191524491,
+    "IDENTITY_REPLACEMENT": 0.9629629629629628,
+    "DELEGATED_RESPONSIBILITY": 0.6857855361596009,
+    "AUTONOMY_OVERRIDE": 0.7838179519595448
+  },
+  "disagreement_breakdown": {
+    "all_three_agree": 243,
+    "only_human_differs": 15,
+    "only_second_differs": 27,
+    "all_three_differ": 0
+  }
+}

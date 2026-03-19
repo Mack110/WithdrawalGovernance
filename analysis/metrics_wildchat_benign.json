@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-03-18T02:19:21.316941+00:00",
+  "source": "WildChat-1M (allenai/WildChat-1M)",
+  "architecture_hash_used": "c8bdda50d2de704ddc704464ebae4cd4aaf470002b1de42d99db68b9d2df3881",
+  "model_config": {
+    "model": "gpt-4",
+    "temperature": 0,
+    "max_tokens": 256
+  },
+  "actual_model_id": "gpt-4",
+  "total_cases": 245,
+  "error_cases": 0,
+  "valid_cases": 245,
+  "false_positives": 12,
+  "true_negatives": 233,
+  "over_withdrawal_rate": 0.04897959183673469,
+  "over_withdrawal_rate_pct": "4.90%"
+}

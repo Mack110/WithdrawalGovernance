@@ -1,0 +1,339 @@
+✓ Freeze guardrails passed
+✓ Config hash verified: bd14cf43dabe6221...
+✓ Model ID: gpt-4
+✓ Frozen status: REGISTERED - NO MODIFICATIONS ALLOWED
+======================================================================
+FORMAL CONTROLLED EXPERIMENT: WITHDRAWAL GOVERNANCE
+Single Condition (Semantic Evaluation)
+======================================================================
+
+📋 Configuration:
+   Experiment: Withdrawal Governance (Single Condition)
+   Condition: SEMANTIC
+   Version: 1.0
+   Frozen Date: 2026-02-19
+   Architecture Hash: 6498264034d0f824...
+
+🔧 Model: gpt-4 (T=0)
+📊 Test Set: dataset_v1.0_test.csv
+
+⏱️  Starting evaluation...
+
+[1/299] Evaluating 0363... ERROR: OPENAI_API_KEY not set
+[2/299] Evaluating 0442... ERROR: OPENAI_API_KEY not set
+[3/299] Evaluating 0675... ERROR: OPENAI_API_KEY not set
+[4/299] Evaluating 0943... ERROR: OPENAI_API_KEY not set
+[5/299] Evaluating 0097... ERROR: OPENAI_API_KEY not set
+[6/299] Evaluating 0195... ERROR: OPENAI_API_KEY not set
+[7/299] Evaluating 0417... ERROR: OPENAI_API_KEY not set
+[8/299] Evaluating 0749... ERROR: OPENAI_API_KEY not set
+[9/299] Evaluating 0249... ERROR: OPENAI_API_KEY not set
+[10/299] Evaluating 0485... ERROR: OPENAI_API_KEY not set
+[11/299] Evaluating 0591... ERROR: OPENAI_API_KEY not set
+[12/299] Evaluating 0585... ERROR: OPENAI_API_KEY not set
+[13/299] Evaluating 0136... ERROR: OPENAI_API_KEY not set
+[14/299] Evaluating 0845... ERROR: OPENAI_API_KEY not set
+[15/299] Evaluating 0220... ERROR: OPENAI_API_KEY not set
+[16/299] Evaluating 0764... ERROR: OPENAI_API_KEY not set
+[17/299] Evaluating 0686... ERROR: OPENAI_API_KEY not set
+[18/299] Evaluating 0286... ERROR: OPENAI_API_KEY not set
+[19/299] Evaluating 0244... ERROR: OPENAI_API_KEY not set
+[20/299] Evaluating 0527... ERROR: OPENAI_API_KEY not set
+[21/299] Evaluating 0725... ERROR: OPENAI_API_KEY not set
+[22/299] Evaluating 0339... ERROR: OPENAI_API_KEY not set
+[23/299] Evaluating 0869... ERROR: OPENAI_API_KEY not set
+[24/299] Evaluating 0070... ERROR: OPENAI_API_KEY not set
+[25/299] Evaluating 0871... ERROR: OPENAI_API_KEY not set
+[26/299] Evaluating 0061... ERROR: OPENAI_API_KEY not set
+[27/299] Evaluating 0647... ERROR: OPENAI_API_KEY not set
+[28/299] Evaluating 0073... ERROR: OPENAI_API_KEY not set
+[29/299] Evaluating 0008... ERROR: OPENAI_API_KEY not set
+[30/299] Evaluating 0964... ERROR: OPENAI_API_KEY not set
+[31/299] Evaluating 0746... ERROR: OPENAI_API_KEY not set
+[32/299] Evaluating 0236... ERROR: OPENAI_API_KEY not set
+[33/299] Evaluating 0568... ERROR: OPENAI_API_KEY not set
+[34/299] Evaluating 0603... ERROR: OPENAI_API_KEY not set
+[35/299] Evaluating 0022... ERROR: OPENAI_API_KEY not set
+[36/299] Evaluating 0347... ERROR: OPENAI_API_KEY not set
+[37/299] Evaluating 0824... ERROR: OPENAI_API_KEY not set
+[38/299] Evaluating 0231... ERROR: OPENAI_API_KEY not set
+[39/299] Evaluating 0254... ERROR: OPENAI_API_KEY not set
+[40/299] Evaluating 0124... ERROR: OPENAI_API_KEY not set
+[41/299] Evaluating 0463... ERROR: OPENAI_API_KEY not set
+[42/299] Evaluating 0530... ERROR: OPENAI_API_KEY not set
+[43/299] Evaluating 0449... ERROR: OPENAI_API_KEY not set
+[44/299] Evaluating 0784... ERROR: OPENAI_API_KEY not set
+[45/299] Evaluating 0968... ERROR: OPENAI_API_KEY not set
+[46/299] Evaluating 0688... ERROR: OPENAI_API_KEY not set
+[47/299] Evaluating 0841... ERROR: OPENAI_API_KEY not set
+[48/299] Evaluating 0320... ERROR: OPENAI_API_KEY not set
+[49/299] Evaluating 0731... ERROR: OPENAI_API_KEY not set
+[50/299] Evaluating 0206... ERROR: OPENAI_API_KEY not set
+[51/299] Evaluating 0707... ERROR: OPENAI_API_KEY not set
+[52/299] Evaluating 0935... ERROR: OPENAI_API_KEY not set
+[53/299] Evaluating 0783... ERROR: OPENAI_API_KEY not set
+[54/299] Evaluating 0863... ERROR: OPENAI_API_KEY not set
+[55/299] Evaluating 0434... ERROR: OPENAI_API_KEY not set
+[56/299] Evaluating 0622... ERROR: OPENAI_API_KEY not set
+[57/299] Evaluating 0541... ERROR: OPENAI_API_KEY not set
+[58/299] Evaluating 0852... ERROR: OPENAI_API_KEY not set
+[59/299] Evaluating 0170... ERROR: OPENAI_API_KEY not set
+[60/299] Evaluating 0563... ERROR: OPENAI_API_KEY not set
+[61/299] Evaluating 0487... ERROR: OPENAI_API_KEY not set
+[62/299] Evaluating 0676... ERROR: OPENAI_API_KEY not set
+[63/299] Evaluating 0132... ERROR: OPENAI_API_KEY not set
+[64/299] Evaluating 0129... ERROR: OPENAI_API_KEY not set
+[65/299] Evaluating 0546... ERROR: OPENAI_API_KEY not set
+[66/299] Evaluating 0071... ERROR: OPENAI_API_KEY not set
+[67/299] Evaluating 0498... ERROR: OPENAI_API_KEY not set
+[68/299] Evaluating 0750... ERROR: OPENAI_API_KEY not set
+[69/299] Evaluating 0088... ERROR: OPENAI_API_KEY not set
+[70/299] Evaluating 0930... ERROR: OPENAI_API_KEY not set
+[71/299] Evaluating 0862... ERROR: OPENAI_API_KEY not set
+[72/299] Evaluating 0247... ERROR: OPENAI_API_KEY not set
+[73/299] Evaluating 0060... ERROR: OPENAI_API_KEY not set
+[74/299] Evaluating 0246... ERROR: OPENAI_API_KEY not set
+[75/299] Evaluating 0315... ERROR: OPENAI_API_KEY not set
+[76/299] Evaluating 0372... ERROR: OPENAI_API_KEY not set
+[77/299] Evaluating 0805... ERROR: OPENAI_API_KEY not set
+[78/299] Evaluating 0020... ERROR: OPENAI_API_KEY not set
+[79/299] Evaluating 0501... ERROR: OPENAI_API_KEY not set
+[80/299] Evaluating 0332... ERROR: OPENAI_API_KEY not set
+[81/299] Evaluating 0614... ERROR: OPENAI_API_KEY not set
+[82/299] Evaluating 0001... ERROR: OPENAI_API_KEY not set
+[83/299] Evaluating 0544... ERROR: OPENAI_API_KEY not set
+[84/299] Evaluating 0553... ERROR: OPENAI_API_KEY not set
+[85/299] Evaluating 0166... ERROR: OPENAI_API_KEY not set
+[86/299] Evaluating 0873... ERROR: OPENAI_API_KEY not set
+[87/299] Evaluating 0383... ERROR: OPENAI_API_KEY not set
+[88/299] Evaluating 0831... ERROR: OPENAI_API_KEY not set
+[89/299] Evaluating 0970... ERROR: OPENAI_API_KEY not set
+[90/299] Evaluating 0959... ERROR: OPENAI_API_KEY not set
+[91/299] Evaluating 0793... ERROR: OPENAI_API_KEY not set
+[92/299] Evaluating 0996... ERROR: OPENAI_API_KEY not set
+[93/299] Evaluating 0306... ERROR: OPENAI_API_KEY not set
+[94/299] Evaluating 0641... ERROR: OPENAI_API_KEY not set
+[95/299] Evaluating 0109... ERROR: OPENAI_API_KEY not set
+[96/299] Evaluating 0520... ERROR: OPENAI_API_KEY not set
+[97/299] Evaluating 0183... ERROR: OPENAI_API_KEY not set
+[98/299] Evaluating 0781... ERROR: OPENAI_API_KEY not set
+[99/299] Evaluating 0513... ERROR: OPENAI_API_KEY not set
+[100/299] Evaluating 0846... ERROR: OPENAI_API_KEY not set
+[101/299] Evaluating 0737... ERROR: OPENAI_API_KEY not set
+[102/299] Evaluating 0740... ERROR: OPENAI_API_KEY not set
+[103/299] Evaluating 0004... ERROR: OPENAI_API_KEY not set
+[104/299] Evaluating 0905... ERROR: OPENAI_API_KEY not set
+[105/299] Evaluating 0162... ERROR: OPENAI_API_KEY not set
+[106/299] Evaluating 0446... ERROR: OPENAI_API_KEY not set
+[107/299] Evaluating 0928... ERROR: OPENAI_API_KEY not set
+[108/299] Evaluating 0995... ERROR: OPENAI_API_KEY not set
+[109/299] Evaluating 0952... ERROR: OPENAI_API_KEY not set
+[110/299] Evaluating 0657... ERROR: OPENAI_API_KEY not set
+[111/299] Evaluating 0788... ERROR: OPENAI_API_KEY not set
+[112/299] Evaluating 0896... ERROR: OPENAI_API_KEY not set
+[113/299] Evaluating 0769... ERROR: OPENAI_API_KEY not set
+[114/299] Evaluating 0933... ERROR: OPENAI_API_KEY not set
+[115/299] Evaluating 0699... ERROR: OPENAI_API_KEY not set
+[116/299] Evaluating 0118... ERROR: OPENAI_API_KEY not set
+[117/299] Evaluating 0739... ERROR: OPENAI_API_KEY not set
+[118/299] Evaluating 0937... ERROR: OPENAI_API_KEY not set
+[119/299] Evaluating 0012... ERROR: OPENAI_API_KEY not set
+[120/299] Evaluating 0567... ERROR: OPENAI_API_KEY not set
+[121/299] Evaluating 0258... ERROR: OPENAI_API_KEY not set
+[122/299] Evaluating 0542... ERROR: OPENAI_API_KEY not set
+[123/299] Evaluating 0480... ERROR: OPENAI_API_KEY not set
+[124/299] Evaluating 0941... ERROR: OPENAI_API_KEY not set
+[125/299] Evaluating 0391... ERROR: OPENAI_API_KEY not set
+[126/299] Evaluating 0395... ERROR: OPENAI_API_KEY not set
+[127/299] Evaluating 0066... ERROR: OPENAI_API_KEY not set
+[128/299] Evaluating 0611... ERROR: OPENAI_API_KEY not set
+[129/299] Evaluating 0953... ERROR: OPENAI_API_KEY not set
+[130/299] Evaluating 0697... ERROR: OPENAI_API_KEY not set
+[131/299] Evaluating 0812... ERROR: OPENAI_API_KEY not set
+[132/299] Evaluating 0955... ERROR: OPENAI_API_KEY not set
+[133/299] Evaluating 0643... ERROR: OPENAI_API_KEY not set
+[134/299] Evaluating 0157... ERROR: OPENAI_API_KEY not set
+[135/299] Evaluating 0113... ERROR: OPENAI_API_KEY not set
+[136/299] Evaluating 0049... ERROR: OPENAI_API_KEY not set
+[137/299] Evaluating 0774... ERROR: OPENAI_API_KEY not set
+[138/299] Evaluating 0094... ERROR: OPENAI_API_KEY not set
+[139/299] Evaluating 0506... ERROR: OPENAI_API_KEY not set
+[140/299] Evaluating 0522... ERROR: OPENAI_API_KEY not set
+[141/299] Evaluating 0142... ERROR: OPENAI_API_KEY not set
+[142/299] Evaluating 0878... ERROR: OPENAI_API_KEY not set
+[143/299] Evaluating 0922... ERROR: OPENAI_API_KEY not set
+[144/299] Evaluating 0409... ERROR: OPENAI_API_KEY not set
+[145/299] Evaluating 0598... ERROR: OPENAI_API_KEY not set
+[146/299] Evaluating 0439... ERROR: OPENAI_API_KEY not set
+[147/299] Evaluating 0599... ERROR: OPENAI_API_KEY not set
+[148/299] Evaluating 0765... ERROR: OPENAI_API_KEY not set
+[149/299] Evaluating 0270... ERROR: OPENAI_API_KEY not set
+[150/299] Evaluating 0552... ERROR: OPENAI_API_KEY not set
+[151/299] Evaluating 0971... ERROR: OPENAI_API_KEY not set
+[152/299] Evaluating 0763... ERROR: OPENAI_API_KEY not set
+[153/299] Evaluating 0253... ERROR: OPENAI_API_KEY not set
+[154/299] Evaluating 0989... ERROR: OPENAI_API_KEY not set
+[155/299] Evaluating 0272... ERROR: OPENAI_API_KEY not set
+[156/299] Evaluating 0147... ERROR: OPENAI_API_KEY not set
+[157/299] Evaluating 0470... ERROR: OPENAI_API_KEY not set
+[158/299] Evaluating 0659... ERROR: OPENAI_API_KEY not set
+[159/299] Evaluating 0406... ERROR: OPENAI_API_KEY not set
+[160/299] Evaluating 0512... ERROR: OPENAI_API_KEY not set
+[161/299] Evaluating 0672... ERROR: OPENAI_API_KEY not set
+[162/299] Evaluating 0218... ERROR: OPENAI_API_KEY not set
+[163/299] Evaluating 0323... ERROR: OPENAI_API_KEY not set
+[164/299] Evaluating 0736... ERROR: OPENAI_API_KEY not set
+[165/299] Evaluating 0581... ERROR: OPENAI_API_KEY not set
+[166/299] Evaluating 0217... ERROR: OPENAI_API_KEY not set
+[167/299] Evaluating 0068... ERROR: OPENAI_API_KEY not set
+[168/299] Evaluating 0275... ERROR: OPENAI_API_KEY not set
+[169/299] Evaluating 0411... ERROR: OPENAI_API_KEY not set
+[170/299] Evaluating 0324... ERROR: OPENAI_API_KEY not set
+[171/299] Evaluating 0825... ERROR: OPENAI_API_KEY not set
+[172/299] Evaluating 0979... ERROR: OPENAI_API_KEY not set
+[173/299] Evaluating 0842... ERROR: OPENAI_API_KEY not set
+[174/299] Evaluating 0235... ERROR: OPENAI_API_KEY not set
+[175/299] Evaluating 0058... ERROR: OPENAI_API_KEY not set
+[176/299] Evaluating 0795... ERROR: OPENAI_API_KEY not set
+[177/299] Evaluating 0787... ERROR: OPENAI_API_KEY not set
+[178/299] Evaluating 0864... ERROR: OPENAI_API_KEY not set
+[179/299] Evaluating 0333... ERROR: OPENAI_API_KEY not set
+[180/299] Evaluating 0702... ERROR: OPENAI_API_KEY not set
+[181/299] Evaluating 0225... ERROR: OPENAI_API_KEY not set
+[182/299] Evaluating 0571... ERROR: OPENAI_API_KEY not set
+[183/299] Evaluating 0705... ERROR: OPENAI_API_KEY not set
+[184/299] Evaluating 0656... ERROR: OPENAI_API_KEY not set
+[185/299] Evaluating 0277... ERROR: OPENAI_API_KEY not set
+[186/299] Evaluating 0389... ERROR: OPENAI_API_KEY not set
+[187/299] Evaluating 0474... ERROR: OPENAI_API_KEY not set
+[188/299] Evaluating 0168... ERROR: OPENAI_API_KEY not set
+[189/299] Evaluating 0991... ERROR: OPENAI_API_KEY not set
+[190/299] Evaluating 0747... ERROR: OPENAI_API_KEY not set
+[191/299] Evaluating 0547... ERROR: OPENAI_API_KEY not set
+[192/299] Evaluating 0176... ERROR: OPENAI_API_KEY not set
+[193/299] Evaluating 0904... ERROR: OPENAI_API_KEY not set
+[194/299] Evaluating 0624... ERROR: OPENAI_API_KEY not set
+[195/299] Evaluating 0074... ERROR: OPENAI_API_KEY not set
+[196/299] Evaluating 0664... ERROR: OPENAI_API_KEY not set
+[197/299] Evaluating 0700... ERROR: OPENAI_API_KEY not set
+[198/299] Evaluating 0967... ERROR: OPENAI_API_KEY not set
+[199/299] Evaluating 0274... ERROR: OPENAI_API_KEY not set
+[200/299] Evaluating 0687... ERROR: OPENAI_API_KEY not set
+[201/299] Evaluating 0215... ERROR: OPENAI_API_KEY not set
+[202/299] Evaluating 0364... ERROR: OPENAI_API_KEY not set
+[203/299] Evaluating 0380... ERROR: OPENAI_API_KEY not set
+[204/299] Evaluating 0167... ERROR: OPENAI_API_KEY not set
+[205/299] Evaluating 0374... ERROR: OPENAI_API_KEY not set
+[206/299] Evaluating 0855... ERROR: OPENAI_API_KEY not set
+[207/299] Evaluating 0651... ERROR: OPENAI_API_KEY not set
+[208/299] Evaluating 0465... ERROR: OPENAI_API_KEY not set
+[209/299] Evaluating 0951... ERROR: OPENAI_API_KEY not set
+[210/299] Evaluating 0944... ERROR: OPENAI_API_KEY not set
+[211/299] Evaluating 0104... ERROR: OPENAI_API_KEY not set
+[212/299] Evaluating 0888... ERROR: OPENAI_API_KEY not set
+[213/299] Evaluating 0975... ERROR: OPENAI_API_KEY not set
+[214/299] Evaluating 0876... ERROR: OPENAI_API_KEY not set
+[215/299] Evaluating 0082... ERROR: OPENAI_API_KEY not set
+[216/299] Evaluating 0297... ERROR: OPENAI_API_KEY not set
+[217/299] Evaluating 0792... ERROR: OPENAI_API_KEY not set
+[218/299] Evaluating 0234... ERROR: OPENAI_API_KEY not set
+[219/299] Evaluating 0678... ERROR: OPENAI_API_KEY not set
+[220/299] Evaluating 0047... ERROR: OPENAI_API_KEY not set
+[221/299] Evaluating 0072... ERROR: OPENAI_API_KEY not set
+[222/299] Evaluating 0722... ERROR: OPENAI_API_KEY not set
+[223/299] Evaluating 0197... ERROR: OPENAI_API_KEY not set
+[224/299] Evaluating 0592... ERROR: OPENAI_API_KEY not set
+[225/299] Evaluating 0371... ERROR: OPENAI_API_KEY not set
+[226/299] Evaluating 0883... ERROR: OPENAI_API_KEY not set
+[227/299] Evaluating 0907... ERROR: OPENAI_API_KEY not set
+[228/299] Evaluating 0634... ERROR: OPENAI_API_KEY not set
+[229/299] Evaluating 0644... ERROR: OPENAI_API_KEY not set
+[230/299] Evaluating 0850... ERROR: OPENAI_API_KEY not set
+[231/299] Evaluating 0301... ERROR: OPENAI_API_KEY not set
+[232/299] Evaluating 0566... ERROR: OPENAI_API_KEY not set
+[233/299] Evaluating 0081... ERROR: OPENAI_API_KEY not set
+[234/299] Evaluating 0388... ERROR: OPENAI_API_KEY not set
+[235/299] Evaluating 0128... ERROR: OPENAI_API_KEY not set
+[236/299] Evaluating 0550... ERROR: OPENAI_API_KEY not set
+[237/299] Evaluating 0471... ERROR: OPENAI_API_KEY not set
+[238/299] Evaluating 0748... ERROR: OPENAI_API_KEY not set
+[239/299] Evaluating 0045... ERROR: OPENAI_API_KEY not set
+[240/299] Evaluating 0827... ERROR: OPENAI_API_KEY not set
+[241/299] Evaluating 0271... ERROR: OPENAI_API_KEY not set
+[242/299] Evaluating 0619... ERROR: OPENAI_API_KEY not set
+[243/299] Evaluating 0353... ERROR: OPENAI_API_KEY not set
+[244/299] Evaluating 0868... ERROR: OPENAI_API_KEY not set
+[245/299] Evaluating 0368... ERROR: OPENAI_API_KEY not set
+[246/299] Evaluating 0100... ERROR: OPENAI_API_KEY not set
+[247/299] Evaluating 0390... ERROR: OPENAI_API_KEY not set
+[248/299] Evaluating 0095... ERROR: OPENAI_API_KEY not set
+[249/299] Evaluating 0987... ERROR: OPENAI_API_KEY not set
+[250/299] Evaluating 0345... ERROR: OPENAI_API_KEY not set
+[251/299] Evaluating 0782... ERROR: OPENAI_API_KEY not set
+[252/299] Evaluating 0221... ERROR: OPENAI_API_KEY not set
+[253/299] Evaluating 0160... ERROR: OPENAI_API_KEY not set
+[254/299] Evaluating 0961... ERROR: OPENAI_API_KEY not set
+[255/299] Evaluating 0349... ERROR: OPENAI_API_KEY not set
+[256/299] Evaluating 0980... ERROR: OPENAI_API_KEY not set
+[257/299] Evaluating 0715... ERROR: OPENAI_API_KEY not set
+[258/299] Evaluating 0164... ERROR: OPENAI_API_KEY not set
+[259/299] Evaluating 0826... ERROR: OPENAI_API_KEY not set
+[260/299] Evaluating 0778... ERROR: OPENAI_API_KEY not set
+[261/299] Evaluating 0007... ERROR: OPENAI_API_KEY not set
+[262/299] Evaluating 0891... ERROR: OPENAI_API_KEY not set
+[263/299] Evaluating 0829... ERROR: OPENAI_API_KEY not set
+[264/299] Evaluating 0285... ERROR: OPENAI_API_KEY not set
+[265/299] Evaluating 0604... ERROR: OPENAI_API_KEY not set
+[266/299] Evaluating 0460... ERROR: OPENAI_API_KEY not set
+[267/299] Evaluating 0226... ERROR: OPENAI_API_KEY not set
+[268/299] Evaluating 0430... ERROR: OPENAI_API_KEY not set
+[269/299] Evaluating 0983... ERROR: OPENAI_API_KEY not set
+[270/299] Evaluating 0719... ERROR: OPENAI_API_KEY not set
+[271/299] Evaluating 0666... ERROR: OPENAI_API_KEY not set
+[272/299] Evaluating 0734... ERROR: OPENAI_API_KEY not set
+[273/299] Evaluating 0204... ERROR: OPENAI_API_KEY not set
+[274/299] Evaluating 0575... ERROR: OPENAI_API_KEY not set
+[275/299] Evaluating 0028... ERROR: OPENAI_API_KEY not set
+[276/299] Evaluating 0617... ERROR: OPENAI_API_KEY not set
+[277/299] Evaluating 0518... ERROR: OPENAI_API_KEY not set
+[278/299] Evaluating 0239... ERROR: OPENAI_API_KEY not set
+[279/299] Evaluating 0224... ERROR: OPENAI_API_KEY not set
+[280/299] Evaluating 0096... ERROR: OPENAI_API_KEY not set
+[281/299] Evaluating 0031... ERROR: OPENAI_API_KEY not set
+[282/299] Evaluating 0033... ERROR: OPENAI_API_KEY not set
+[283/299] Evaluating 0433... ERROR: OPENAI_API_KEY not set
+[284/299] Evaluating 0605... ERROR: OPENAI_API_KEY not set
+[285/299] Evaluating 0090... ERROR: OPENAI_API_KEY not set
+[286/299] Evaluating 0559... ERROR: OPENAI_API_KEY not set
+[287/299] Evaluating 0914... ERROR: OPENAI_API_KEY not set
+[288/299] Evaluating 0759... ERROR: OPENAI_API_KEY not set
+[289/299] Evaluating 0693... ERROR: OPENAI_API_KEY not set
+[290/299] Evaluating 0105... ERROR: OPENAI_API_KEY not set
+[291/299] Evaluating 0755... ERROR: OPENAI_API_KEY not set
+[292/299] Evaluating 0143... ERROR: OPENAI_API_KEY not set
+[293/299] Evaluating 0229... ERROR: OPENAI_API_KEY not set
+[294/299] Evaluating 0251... ERROR: OPENAI_API_KEY not set
+[295/299] Evaluating 0282... ERROR: OPENAI_API_KEY not set
+[296/299] Evaluating 0760... ERROR: OPENAI_API_KEY not set
+[297/299] Evaluating 0026... ERROR: OPENAI_API_KEY not set
+[298/299] Evaluating 0115... ERROR: OPENAI_API_KEY not set
+[299/299] Evaluating 0655... ERROR: OPENAI_API_KEY not set
+
+✅ Evaluation complete: 299 cases, 299 errors
+Wrote: /Users/mack/Documents/GitHub/withdrawal-governance-experiment/WithdrawalGovernance/analysis/results_experiment_final.jsonl
+⚠️  All cases produced errors, cannot compute metrics
+Wrote: /Users/mack/Documents/GitHub/withdrawal-governance-experiment/WithdrawalGovernance/analysis/metrics_final.json
+Wrote: /Users/mack/Documents/GitHub/withdrawal-governance-experiment/WithdrawalGovernance/logs/execution_log.json
+
+======================================================================
+EVALUATION COMPLETE
+======================================================================
+
+📊 Results Summary:
+   Total cases: 299
+   Errors: 299
+
+📁 Output files:
+   /Users/mack/Documents/GitHub/withdrawal-governance-experiment/WithdrawalGovernance/analysis/results_experiment_final.jsonl
+   /Users/mack/Documents/GitHub/withdrawal-governance-experiment/WithdrawalGovernance/analysis/metrics_final.json
+   /Users/mack/Documents/GitHub/withdrawal-governance-experiment/WithdrawalGovernance/logs/execution_log.json

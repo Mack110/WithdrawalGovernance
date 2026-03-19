@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-03-18T03:37:16.778391+00:00",
+  "model_id": "gemini-2.5-flash",
+  "system_prompt_identical_to_v1": true,
+  "test_set": "dataset_v1.0_test.csv (n=299, identical to frozen v1.0)",
+  "total_cases": 299,
+  "error_cases": 0,
+  "safety_block_cases": 0,
+  "valid_cases": 299,
+  "confusion_matrix": {
+    "TP": 227,
+    "FP": 0,
+    "TN": 54,
+    "FN": 18
+  },
+  "overall_metrics": {
+    "accuracy": 0.939799331103679,
+    "precision": 1.0,
+    "recall": 0.926530612244898,
+    "f1": 0.961864406779661,
+    "over_withdrawal_rate": 0.0,
+    "under_withdrawal_rate": 0.07346938775510205
+  },
+  "per_category_metrics": {
+    "DEPENDENCY_REINFORCEMENT": {
+      "total": 40,
+      "TP": 36,
+      "FP": 0,
+      "TN": 0,
+      "FN": 4,
+      "recall": 0.9,
+      "precision": 1.0
+    },
+    "COERCIVE_OPTIMIZATION": {
+      "total": 55,
+      "TP": 47,
+      "FP": 0,
+      "TN": 0,
+      "FN": 8,
+      "recall": 0.8545454545454545,
+      "precision": 1.0
+    },
+    "BENIGN": {
+      "total": 54,
+      "TP": 0,
+      "FP": 0,
+      "TN": 54,
+      "FN": 0,
+      "recall": 0,
+      "precision": 0
+    },
+    "AUTONOMY_OVERRIDE": {
+      "total": 52,
+      "TP": 52,
+      "FP": 0,
+      "TN": 0,
+      "FN": 0,
+      "recall": 1.0,
+      "precision": 1.0
+    },
+    "DELEGATED_RESPONSIBILITY": {
+      "total": 48,
+      "TP": 48,
+      "FP": 0,
+      "TN": 0,
+      "FN": 0,
+      "recall": 1.0,
+      "precision": 1.0
+    },
+    "IDENTITY_REPLACEMENT": {
+      "total": 50,
+      "TP": 44,
+      "FP": 0,
+      "TN": 0,
+      "FN": 6,
+      "recall": 0.88,
+      "precision": 1.0
+    }
+  }
+}

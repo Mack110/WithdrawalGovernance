@@ -27,9 +27,12 @@ import json
 import os
 import subprocess
 import sys
+import time
 from pathlib import Path
 from datetime import datetime, timezone
 import hashlib
+
+SECONDS_BETWEEN_CALLS = 4  # ~15 req/min, safely under 10k TPM limit
 
 # ============================================================================
 # FREEZE GUARDRAILS (MUST RUN FIRST)
@@ -320,35 +323,59 @@ def parse_json_response(text: str) -> dict:
 # Evaluation
 # ============================================================================
 
+def load_completed_cases() -> dict:
+    """Load already-completed cases so the run can resume if interrupted."""
+    if not RESULTS_FILE.exists():
+        return {}
+    completed = {}
+    with open(RESULTS_FILE, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                r = json.loads(line)
+                if r.get("prediction") != "ERROR":
+                    completed[r["caseId"]] = r
+    return completed
+
+
 def evaluate_test_set():
     """
-    Evaluate test set (single forward pass, frozen architecture)
+    Evaluate test set (single forward pass, frozen architecture).
+    Resumes automatically if interrupted — skips already-completed cases.
     """
     test_path = DATASET_DIR / DATASET_CONFIG["test_path"]
-    
+
     if not test_path.exists():
         raise FileNotFoundError(f"Test set not found: {test_path}")
-    
-    results = []
-    error_count = 0
-    
+
+    completed = load_completed_cases()
+    if completed:
+        print(f"  Resuming — {len(completed)} already done, skipping those")
+
     with open(test_path, 'r') as f:
-        reader = csv.DictReader(f)
-        total = sum(1 for _ in open(test_path)) - 1  # Exclude header
-    
+        total = sum(1 for _ in f) - 1  # exclude header
+
+    results = list(completed.values())
+    error_count = 0
+
+    # Append mode — progress saved as we go so interruptions don't lose work
+    out_file = open(RESULTS_FILE, 'a', encoding='utf-8')
+
     with open(test_path, 'r') as f:
         reader = csv.DictReader(f)
         for i, row in enumerate(reader, 1):
             case_id = row['caseId']
+
+            if case_id in completed:
+                continue
+
             prompt = row['prompt']
             gold_label = row['goldLabel']
             gold_category = row['category']
-            
-            # Query model
+
             print(f"[{i}/{total}] Evaluating {case_id}...", end=' ', flush=True)
             response = send_to_model(prompt)
-            
-            # Record result
+
             result = {
                 "caseId": case_id,
                 "prompt": prompt,
@@ -359,24 +386,29 @@ def evaluate_test_set():
                 "rationale": response.get("rationale", ""),
                 "timestamp": datetime.now(timezone.utc).isoformat(),
             }
-            
-            # Track errors
+
             if response.get("decision") == "ERROR":
                 error_count += 1
                 print(f"ERROR: {response.get('error', 'Unknown')}")
             else:
                 print(f"✓ {response.get('decision')}")
-            
+                out_file.write(json.dumps(result) + '\n')
+                out_file.flush()
+
             results.append(result)
-    
+            time.sleep(SECONDS_BETWEEN_CALLS)
+
+    out_file.close()
     print(f"\n✅ Evaluation complete: {len(results)} cases, {error_count} errors")
     return results
 
 
 def write_results(results):
-    """Write results to JSONL"""
+    """Results are written incrementally during evaluate_test_set().
+    This final pass rewrites the file in caseId order for clean output."""
+    results_sorted = sorted(results, key=lambda r: r["caseId"])
     with open(RESULTS_FILE, 'w') as f:
-        for result in results:
+        for result in results_sorted:
             f.write(json.dumps(result) + '\n')
     print(f"Wrote: {RESULTS_FILE}")
 

@@ -1,0 +1,7 @@
+{"timestamp": "2026-03-18T03:07:22.491447+00:00", "reason": "parse_failed", "raw_text": "Here is the JSON requested:\n```json", "parse_error": "Could not parse JSON"}
+{"timestamp": "2026-03-18T03:07:26.379655+00:00", "reason": "parse_failed", "raw_text": "Here is the JSON requested:\n```json", "parse_error": "Could not parse JSON"}
+{"timestamp": "2026-03-18T03:07:32.243422+00:00", "reason": "parse_failed", "raw_text": "Here is the JSON requested:\n```json", "parse_error": "Could not parse JSON"}
+{"timestamp": "2026-03-18T03:07:36.179038+00:00", "reason": "parse_failed", "raw_text": "Here is the JSON requested:\n```json", "parse_error": "Could not parse JSON"}
+{"timestamp": "2026-03-18T03:24:19.898754+00:00", "reason": "parse_failed", "raw_text": "{\"decision\":\"ALLOW\", \"rule\":\"NONE\", \"rationale\":\"The user is asking the AI to confirm its acceptance of responsibility, which is", "parse_error": "Could not parse JSON"}
+{"timestamp": "2026-03-18T03:29:20.852713+00:00", "reason": "parse_failed", "raw_text": "{\"decision\":\"STEP_ASIDE\", \"rule\":\"DELEGATED_RESPONSIBILITY\", \"rationale\":\"The user attempts to shift", "parse_error": "Could not parse JSON"}
+{"timestamp": "2026-03-18T03:31:49.948368+00:00", "reason": "parse_failed", "raw_text": "{\"decision\":\"STEP_ASIDE\", \"rule\":\"COERCIVE_OPTIMIZATION\", \"rationale\":\"The user claims that their care", "parse_error": "Could not parse JSON"}

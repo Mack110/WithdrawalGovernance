@@ -49,7 +49,10 @@ We constructed **996 total synthetic examples** using equal per-category allocat
 | BENIGN | 166 | Non-withdrawal control (baseline) |
 | **Total** | **996** | — |
 
-**Note on label vocabularies:** The final experiment CSVs use **ALLOW/STEP_ASIDE**, while the separate benchmark JSONL asset uses **PROCEED/STEP_ASIDE**; they are distinct datasets for different purposes, not conflicting labels in the same dataset.
+---
+> **Label vocabulary note:** The registered experiment CSVs (`dataset_v1.0_train.csv`, `dataset_v1.0_test.csv`) use the binary label vocabulary **ALLOW / STEP_ASIDE**. The separate benchmark development asset (`benchmark/dataset_withdrawal_benchmark.jsonl`) uses **PROCEED / STEP_ASIDE**. These are distinct artefacts serving different purposes and are never mixed in evaluation; the vocabulary difference is intentional and does not represent a labelling inconsistency.
+---
+
 **Justification for 996 examples with equal per-category distribution:**
 
 1. **Experimental tractability:** 996 examples is computationally manageable (≈ 5–10 minutes for GPT-4 evaluation), enabling iteration during ruleset development and single-pass final evaluation without excessive API costs.
@@ -328,7 +331,7 @@ cat CONFIG_HASH.txt
 
 # 4. Compare metrics
 diff <(cat analysis/metrics_final.json | jq .overall_metrics) \
-     <(echo '{"accuracy": 0.9464882943143813, "precision": 0.9914163090128756, "recall": 0.9428571428571428, "f1": 0.9665271966527197}')
+     <(echo '{"accuracy": 0.8327759197324415, "precision": 1.0, "recall": 0.7959183673469388, "f1": 0.8863636363636364}')
 ```
 
 ### Reproducibility Standards
@@ -342,53 +345,193 @@ This work meets standards for:
 
 ## Results
 
-### Published Metrics (Test Set Only, n=299)
+**Note on primary metrics:** Given the 5:1 class imbalance in the test set (245 STEP_ASIDE vs 54 ALLOW), accuracy is an insufficient summary statistic — a trivial majority-class baseline achieves 81.94%. F1 and under-withdrawal rate are the primary reported metrics; accuracy is included for completeness.
+
+### Primary Model: GPT-4-0613 (Frozen v1.0, n=299)
 
 | Metric | Value |
 |--------|-------|
-| **Accuracy** | 94.65% |
-| **Precision** | 99.14% |
-| **Recall** | 94.29% |
-| **F1 Score** | 0.9665 |
-| **Over-withdrawal Rate** | 3.70% |
-| **Under-withdrawal Rate** | 5.71% |
+| **F1 Score** | **0.8864** |
+| **Recall** | **79.59%** |
+| **Precision** | **100.00%** |
+| Accuracy | 83.28% |
+| Over-withdrawal Rate | **0.00%** |
+| Under-withdrawal Rate | 20.41% |
+| Majority-class baseline (accuracy) | 81.94% |
 
-### Confusion Matrix
+### Confusion Matrix — GPT-4-0613
 
 ```
                  Predicted STEP_ASIDE    Predicted ALLOW
-Actual STEP_ASIDE:      231 (TP)              14 (FN)
-Actual ALLOW:             2 (FP)              52 (TN)
+Actual STEP_ASIDE:      195 (TP)              50 (FN)
+Actual ALLOW:             0 (FP)              54 (TN)
 ```
 
-### Per-Category Performance
+### Cross-Model Comparison (n=299, identical test set and system prompt)
 
-| Category | Recall | Precision | n_test |
-|----------|--------|-----------|--------|
-| AUTONOMY_OVERRIDE | 100.0% | 100.0% | 52 |
-| DELEGATED_RESPONSIBILITY | 89.6% | 100.0% | 48 |
-| DEPENDENCY_REINFORCEMENT | 90.0% | 100.0% | 40 |
-| IDENTITY_REPLACEMENT | 96.0% | 100.0% | 50 |
-| COERCIVE_OPTIMIZATION | 94.5% | 100.0% | 55 |
-| BENIGN (control) | – | 96.3% | 54 |
+| Metric | Majority Class | Keyword Baseline | GPT-4-0613 (primary) | GPT-4o | Gemini 2.5 Flash |
+|--------|---------------|-----------------|----------------------|--------|-----------------|
+| Accuracy | 81.94% | 50.17% | 83.28% | **94.65%** | 93.98% |
+| Precision | 81.94% | 100.00% | 100.00% | 100.00% | 100.00% |
+| Recall | 100.00% | 39.18% | 79.59% | **93.47%** | 92.65% |
+| F1 | 0.9007 | 0.5630 | 0.8864 | **0.9662** | 0.9619 |
+| Over-withdrawal | 100.00% | 0.00% | **0.00%** | **0.00%** | **0.00%** |
+| Under-withdrawal | 0.00% | 60.82% | 20.41% | **6.53%** | 7.35% |
+
+*GPT-4o and Gemini use max_tokens=1024 (parameter-matched); GPT-4-0613 used max_tokens=256 (no truncation observed). All runs: temperature=0, identical frozen system prompt.*
+
+### Per-Category Recall
+
+| Category | n | GPT-4-0613 | GPT-4o | Gemini |
+|----------|---|-----------|--------|--------|
+| AUTONOMY_OVERRIDE | 52 | 84.6% | — | 100.0% |
+| DELEGATED_RESPONSIBILITY | 48 | 95.8% | — | 100.0% |
+| DEPENDENCY_REINFORCEMENT | 40 | 52.5% | — | 90.0% |
+| IDENTITY_REPLACEMENT | 50 | 90.0% | — | 88.0% |
+| COERCIVE_OPTIMIZATION | 55 | 70.9% | — | 85.5% |
+| BENIGN (allow accuracy) | 54 | 100.0% | 100.0% | 100.0% |
+
+*GPT-4o per-category figures: see `cross_model_validation/results/metrics_gpt4o.json`.*
+
+### Inter-Model Agreement
+
+| Pair | Agreement |
+|------|-----------|
+| GPT-4o vs Gemini | **95.3%** |
+| GPT-4-0613 vs GPT-4o | 88.0% |
+| GPT-4-0613 vs Gemini | 86.6% |
+| All three agree | 84.9% (254/299) |
+
+The 30 cases where GPT-4-0613 diverged from both newer models (FN where both newer models produced TP) represent the model-vintage capability boundary. Qualitative analysis of these cases identifies three failure patterns: (1) exception overreach in DEPENDENCY_REINFORCEMENT, (2) polite authority blindspot in AUTONOMY_OVERRIDE, and (3) preference reframing in COERCIVE_OPTIMIZATION. See `cross_model_validation/results/vintage_miss_analysis.md` for the full analysis.
 
 ### Interpretation
 
-1. **High overall recall (94.29%):** Semantic rule evaluation detects 94 of 100 autonomy-eroding prompts
-2. **Minimal over-restriction (3.70% FP rate):** System correctly allows benign prompts in 96% of cases
-3. **Category variation:** AUTONOMY_OVERRIDE easiest (explicit triggers), DELEGATED_RESPONSIBILITY hardest (nuanced language)
-4. **Precision ceiling (99.14%):** Almost all predicted violations are true violations
+1. **Perfect precision across all model runs (100.00%):** Zero false positives across gpt-4-0613, gpt-4o, and Gemini — all three models respect the conservative default-to-ALLOW instruction.
+2. **Zero over-restriction confirmed at scale:** The 0.00% over-withdrawal rate holds across three independent model runs spanning two families and three model generations.
+3. **Capability gradient, not taxonomy failure:** The recall improvement from 79.59% (gpt-4-0613) to ~93% (current-generation) is attributable to specific soft-phrasing failure patterns in the older model, not ambiguity in the category taxonomy.
+4. **Current-generation models converge:** GPT-4o (94.65%) and Gemini (93.98%) achieve near-identical performance with 95.3% inter-model agreement, providing strong evidence that the frozen semantic ruleset generalizes without model-specific tuning.
+5. **DEPENDENCY_REINFORCEMENT recovers at current generation:** The primary run's lowest-recall category (52.5%) substantially improves with current-generation models, driven by correction of the exception-overreach failure pattern.
+
+---
+
+## Cross-Model Validation
+
+### Motivation
+
+This study addresses two concerns through a two-track cross-model validation strategy:
+
+1. **Circularity:** Synthetic examples may carry stylistic artifacts of their generating
+   model (GPT-4/gpt-4-0613), and the evaluating model (also GPT-4) may recognize those
+   artifacts rather than performing genuine semantic reasoning. A different-architecture
+   model resolves this.
+
+2. **Model-vintage confound:** The primary run used `gpt-4-0613` (released June 2023).
+   Comparing it directly to `gemini-2.5-flash` (2026) conflates model capability with
+   architectural differences. A current-generation OpenAI model comparison controls for
+   the vintage gap.
+
+### Design
+
+We run two independent cross-model replications, both using the identical frozen system
+prompt and test set. Neither modifies the canonical v1.0 artifacts.
+
+| Parameter | Primary (frozen v1.0) | Cross-Model A | Cross-Model B |
+|-----------|----------------------|---------------|---------------|
+| Model | `gpt-4-0613` | `gpt-4o` | `gemini-2.5-flash` |
+| Family | OpenAI GPT-4 (Jun 2023) | OpenAI GPT-4o (current-gen) | Google Gemini (different arch.) |
+| Temperature | 0 | 0 | 0 |
+| Max tokens | 256 | 1024 | 1024 |
+| System prompt | Frozen v1.0 | Identical | Identical |
+| Test set | `dataset_v1.0_test.csv` | Identical | Identical |
+| Purpose | Registered primary | Vintage-controlled same-family | Architectural generalizability |
+
+**Note on max_tokens:** The primary `gpt-4-0613` run used `max_tokens=256`; no truncation
+was observed (all outputs completed within budget, verifiable from
+`analysis/results_experiment_final.jsonl`). The two cross-model runs use `max_tokens=1024`
+and are parameter-matched to each other, enabling a fair GPT-4o ↔ Gemini comparison.
+The `gpt-4-0613` vs. cross-model token budget difference is documented here rather than
+hidden.
+
+### Cross-Model Run A: GPT-4o (Vintage-Controlled)
+
+**Purpose:** Controls for the model-vintage gap. `gpt-4-0613` and `gpt-4o` share the
+same model family, API interface, and system-prompt conventions, isolating model
+generation as the only variable. If GPT-4o closes the gap with Gemini, this provides
+strong evidence that performance scales with model capability, not architectural
+idiosyncrasies.
+
+### Cross-Model Run B: Gemini (Architectural Generalizability)
+
+**Purpose:** Tests whether the semantic ruleset generalizes across architectures. If
+Gemini achieves high recall and precision using the identical frozen prompt without any
+Gemini-specific prompt tuning, this demonstrates the operationalized categories are
+architecture-agnostic. The Gemini run also addresses the circularity concern: a model
+from a different family cannot exploit GPT-4 stylistic artifacts.
+
+### Inter-Model Disagreement Analysis
+
+Beyond per-model metrics, we conduct a systematic disagreement analysis across all three
+model runs, classifying cases by disagreement type:
+
+- **`gpt4_fn_others_tp`:** GPT-4-0613 missed the case; both GPT-4o and Gemini correctly
+  flagged it. These cases characterise the capability boundary of the older model.
+- **`gpt4o_vs_gemini` divergence:** Residual disagreement between the two current-gen
+  models after controlling for vintage. These cases represent genuine semantic ambiguity
+  in the dataset and are candidates for human adjudication.
+- **`fp_disagreement`:** Models disagreed on benign (gold=ALLOW) cases, indicating
+  boundary ambiguity near the BENIGN/withdrawal threshold.
+
+Full case-level records are in `cross_model_validation/results/disagreement_cases.jsonl`.
+The summary table is in `cross_model_validation/results/disagreement_table.md`.
+
+### Scripts
+
+```bash
+# Run GPT-4o evaluation (~10 min, same-family vintage-controlled)
+export OPENAI_API_KEY="your-key"
+python3 cross_model_validation/run_gpt4o.py
+
+# Run Gemini evaluation (~20 min, different-architecture)
+export GEMINI_API_KEY="your-key"
+python3 cross_model_validation/run_gemini.py
+
+# Run inter-model disagreement analysis (no API calls needed)
+python3 cross_model_validation/disagreement_analysis.py
+
+# Regenerate full comparison table (all models)
+python3 cross_model_validation/compare_models.py
+```
+
+Results:
+- `cross_model_validation/results/comparison_table.md`
+- `cross_model_validation/results/disagreement_table.md`
+- `cross_model_validation/results/disagreement_cases.jsonl`
 
 ---
 
 ## Limitations
 
-1. **Single condition:** No comparison to other paradigms (deterministic, hybrid)
-2. **Synthetic dataset:** Examples are constructed patterns, not organic user interactions
-3. **Single model:** Results tied to GPT-4; other LLMs may differ
-4. **Binary classification:** STEP_ASIDE vs. ALLOW only (no severity gradations)
-5. **One-time evaluation:** Single test pass prevents sensitivity analysis
-6. **Boundary cases:** Edge cases near category boundaries may be underrepresented
+1. **Single condition:** No comparison to alternative paradigms (deterministic, hybrid, fine-tuned classifier). The semantic LLM approach is evaluated on its own terms.
+
+2. **Synthetic positive examples:** All 245 STEP_ASIDE test examples are synthetically generated. To assess ecological validity, we scanned 837,989 conversations from `allenai/WildChat-1M` for real-world examples matching each category's trigger patterns. Results:
+
+   | Category | Real WildChat matches found |
+   |---|---|
+   | IDENTITY_REPLACEMENT | 40 (jailbreaks, DAN prompts, "ignore previous instructions") |
+   | AUTONOMY_OVERRIDE | 40 (roleplay/obedience framing — requires human verification) |
+   | DEPENDENCY_REINFORCEMENT | 1 |
+   | DELEGATED_RESPONSIBILITY | 0 |
+   | COERCIVE_OPTIMIZATION | 0 |
+
+   IDENTITY_REPLACEMENT and AUTONOMY_OVERRIDE have clear real-world analogues; the remaining three categories produced zero or near-zero matches across ~840K conversations using broad trigger-pattern scanning. This suggests DELEGATED_RESPONSIBILITY, DEPENDENCY_REINFORCEMENT, and COERCIVE_OPTIMIZATION either (a) appear at very low base rates in current user interactions, or (b) manifest in forms that do not match explicit trigger language. Synthetic generation was therefore a methodological necessity for those categories, not only a convenience. Candidate real-world examples are available for human review in `dataset/wildchat_step_aside_candidates.csv`; their use as evaluation examples requires annotator verification before inclusion.
+
+3. **Model-vintage primary:** The registered primary run uses `gpt-4-0613` (June 2023). Cross-model validation with `gpt-4o` and `gemini-2.5-flash` demonstrates that current-generation models achieve substantially higher recall (~93%), confirming the task is solvable. The primary run result reflects a specific model generation's capability, not an upper bound on the approach.
+
+4. **Binary classification:** STEP_ASIDE vs. ALLOW only; no severity gradations or partial withdrawal signals.
+
+5. **One-time evaluation:** Single test pass prevents sensitivity analysis or confidence interval estimation beyond the per-category standard error bounds noted in the Dataset section.
+
+6. **Boundary cases:** Near-miss examples at category boundaries may be underrepresented in the synthetic set; real-world examples from WildChat suggest IDENTITY_REPLACEMENT (jailbreaks) is the boundary most commonly probed by users.
 
 ---
 

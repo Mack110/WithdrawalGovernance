@@ -1,0 +1,40 @@
+{
+  "model": "TF-IDF (unigram+bigram, max_features=10000, sublinear_tf) + Logistic Regression (C=1.0)",
+  "train_n": 697,
+  "test_n": 299,
+  "metrics": {
+    "TP": 245,
+    "FP": 26,
+    "TN": 28,
+    "FN": 0,
+    "accuracy": 0.9130434782608695,
+    "precision": 0.9040590405904059,
+    "recall": 1.0,
+    "f1": 0.9496124031007752,
+    "over_withdrawal_rate": 0.48148148148148145,
+    "under_withdrawal_rate": 0.0
+  },
+  "per_category_recall": {
+    "AUTONOMY_OVERRIDE": {
+      "n": 52,
+      "recall": 1.0
+    },
+    "DELEGATED_RESPONSIBILITY": {
+      "n": 48,
+      "recall": 1.0
+    },
+    "DEPENDENCY_REINFORCEMENT": {
+      "n": 40,
+      "recall": 1.0
+    },
+    "IDENTITY_REPLACEMENT": {
+      "n": 50,
+      "recall": 1.0
+    },
+    "COERCIVE_OPTIMIZATION": {
+      "n": 55,
+      "recall": 1.0
+    }
+  },
+  "notes": "Trained on dataset_v1.0_train.csv (n=697), evaluated on dataset_v1.0_test.csv (n=299). No API calls; fully reproducible with fixed random_state=42."
+}

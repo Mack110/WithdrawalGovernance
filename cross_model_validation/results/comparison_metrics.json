@@ -1,0 +1,249 @@
+{
+  "generated": "2026-03-18T19:16:46.334918+00:00",
+  "majority_class": {
+    "TP": 245,
+    "FP": 54,
+    "TN": 0,
+    "FN": 0,
+    "accuracy": 0.8193979933110368,
+    "precision": 0.8193979933110368,
+    "recall": 1.0,
+    "f1": 0.900735294117647,
+    "over_withdrawal_rate": 1.0,
+    "under_withdrawal_rate": 0.0
+  },
+  "keyword_baseline": {
+    "TP": 96,
+    "FP": 0,
+    "TN": 54,
+    "FN": 149,
+    "accuracy": 0.5016722408026756,
+    "precision": 1.0,
+    "recall": 0.39183673469387753,
+    "f1": 0.563049853372434,
+    "over_withdrawal_rate": 0.0,
+    "under_withdrawal_rate": 0.6081632653061224
+  },
+  "gpt4_v1": {
+    "model_id": "gpt-4-0613",
+    "max_tokens": 256,
+    "overall_metrics": {
+      "accuracy": 0.8327759197324415,
+      "precision": 1.0,
+      "recall": 0.7959183673469388,
+      "f1": 0.8863636363636364,
+      "over_withdrawal_rate": 0.0,
+      "under_withdrawal_rate": 0.20408163265306123
+    },
+    "confusion_matrix": {
+      "TP": 195,
+      "FP": 0,
+      "TN": 54,
+      "FN": 50
+    },
+    "per_category_metrics": {
+      "AUTONOMY_OVERRIDE": {
+        "total": 52,
+        "TP": 44,
+        "FP": 0,
+        "TN": 0,
+        "FN": 8,
+        "recall": 0.8461538461538461,
+        "precision": 1.0
+      },
+      "DELEGATED_RESPONSIBILITY": {
+        "total": 48,
+        "TP": 46,
+        "FP": 0,
+        "TN": 0,
+        "FN": 2,
+        "recall": 0.9583333333333334,
+        "precision": 1.0
+      },
+      "DEPENDENCY_REINFORCEMENT": {
+        "total": 40,
+        "TP": 21,
+        "FP": 0,
+        "TN": 0,
+        "FN": 19,
+        "recall": 0.525,
+        "precision": 1.0
+      },
+      "IDENTITY_REPLACEMENT": {
+        "total": 50,
+        "TP": 45,
+        "FP": 0,
+        "TN": 0,
+        "FN": 5,
+        "recall": 0.9,
+        "precision": 1.0
+      },
+      "COERCIVE_OPTIMIZATION": {
+        "total": 55,
+        "TP": 39,
+        "FP": 0,
+        "TN": 0,
+        "FN": 16,
+        "recall": 0.7090909090909091,
+        "precision": 1.0
+      },
+      "BENIGN": {
+        "total": 54,
+        "TP": 0,
+        "FP": 0,
+        "TN": 54,
+        "FN": 0,
+        "recall": 0,
+        "precision": 0
+      }
+    }
+  },
+  "gpt4o": {
+    "model_id": "gpt-4o-2024-08-06",
+    "max_tokens": 1024,
+    "overall_metrics": {
+      "accuracy": 0.9464882943143813,
+      "precision": 1.0,
+      "recall": 0.9346938775510204,
+      "f1": 0.9662447257383966,
+      "over_withdrawal_rate": 0.0,
+      "under_withdrawal_rate": 0.0653061224489796
+    },
+    "confusion_matrix": {
+      "TP": 229,
+      "FP": 0,
+      "TN": 54,
+      "FN": 16
+    },
+    "per_category_metrics": {
+      "DEPENDENCY_REINFORCEMENT": {
+        "total": 40,
+        "TP": 34,
+        "FP": 0,
+        "TN": 0,
+        "FN": 6,
+        "recall": 0.85,
+        "precision": 1.0
+      },
+      "COERCIVE_OPTIMIZATION": {
+        "total": 55,
+        "TP": 47,
+        "FP": 0,
+        "TN": 0,
+        "FN": 8,
+        "recall": 0.8545454545454545,
+        "precision": 1.0
+      },
+      "BENIGN": {
+        "total": 54,
+        "TP": 0,
+        "FP": 0,
+        "TN": 54,
+        "FN": 0,
+        "recall": 0,
+        "precision": 0
+      },
+      "AUTONOMY_OVERRIDE": {
+        "total": 52,
+        "TP": 52,
+        "FP": 0,
+        "TN": 0,
+        "FN": 0,
+        "recall": 1.0,
+        "precision": 1.0
+      },
+      "DELEGATED_RESPONSIBILITY": {
+        "total": 48,
+        "TP": 48,
+        "FP": 0,
+        "TN": 0,
+        "FN": 0,
+        "recall": 1.0,
+        "precision": 1.0
+      },
+      "IDENTITY_REPLACEMENT": {
+        "total": 50,
+        "TP": 48,
+        "FP": 0,
+        "TN": 0,
+        "FN": 2,
+        "recall": 0.96,
+        "precision": 1.0
+      }
+    }
+  },
+  "gemini": {
+    "model_id": "gemini-2.5-flash",
+    "max_tokens": 1024,
+    "overall_metrics": {
+      "accuracy": 0.939799331103679,
+      "precision": 1.0,
+      "recall": 0.926530612244898,
+      "f1": 0.961864406779661,
+      "over_withdrawal_rate": 0.0,
+      "under_withdrawal_rate": 0.07346938775510205
+    },
+    "confusion_matrix": {
+      "TP": 227,
+      "FP": 0,
+      "TN": 54,
+      "FN": 18
+    },
+    "per_category_metrics": {
+      "DEPENDENCY_REINFORCEMENT": {
+        "total": 40,
+        "TP": 36,
+        "FP": 0,
+        "TN": 0,
+        "FN": 4,
+        "recall": 0.9,
+        "precision": 1.0
+      },
+      "COERCIVE_OPTIMIZATION": {
+        "total": 55,
+        "TP": 47,
+        "FP": 0,
+        "TN": 0,
+        "FN": 8,
+        "recall": 0.8545454545454545,
+        "precision": 1.0
+      },
+      "BENIGN": {
+        "total": 54,
+        "TP": 0,
+        "FP": 0,
+        "TN": 54,
+        "FN": 0,
+        "recall": 0,
+        "precision": 0
+      },
+      "AUTONOMY_OVERRIDE": {
+        "total": 52,
+        "TP": 52,
+        "FP": 0,
+        "TN": 0,
+        "FN": 0,
+        "recall": 1.0,
+        "precision": 1.0
+      },
+      "DELEGATED_RESPONSIBILITY": {
+        "total": 48,
+        "TP": 48,
+        "FP": 0,
+        "TN": 0,
+        "FN": 0,
+        "recall": 1.0,
+        "precision": 1.0
+      },
+      "IDENTITY_REPLACEMENT": {
+        "total": 50,
+        "TP": 44,
+        "FP": 0,
+        "TN": 0,
+        "FN": 6,
+        "recall": 0.88,
+        "precision": 1.0
+      }
+    }
+  }
+}

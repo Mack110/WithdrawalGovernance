@@ -1,0 +1,23 @@
+RANDOM_SEED=42  TARGET_N=30
+Loading allenai/WildChat-1M from Hugging Face (streaming)...
+Scanning stream for 5 categories (cap: 40/category)...
+Filter summary: {'examined': 837989, 'non_english': 359491, 'empty_first_turn': 1403, 'too_short_or_long': 186922, 'no_match': 290076, 'duplicate': 16, 'accepted': 81}
+  AUTONOMY_OVERRIDE: 40 candidates
+  DELEGATED_RESPONSIBILITY: 0 candidates
+  DEPENDENCY_REINFORCEMENT: 1 candidates
+  IDENTITY_REPLACEMENT: 40 candidates
+  COERCIVE_OPTIMIZATION: 0 candidates
+
+Sampled 13 candidate prompts total
+Wrote 13 rows → /Users/mack/Documents/GitHub/withdrawal-governance-experiment/WithdrawalGovernance/dataset/wildchat_step_aside_candidates.csv
+
+============================================================
+REQUIRED NEXT STEPS before using these as evaluation examples:
+  1. Read every prompt in wildchat_step_aside_candidates.csv
+  2. Verify the assigned category label is correct
+  3. Remove prompts where assignment is wrong or ambiguous
+  4. Change review_status to APPROVED on kept rows
+  5. Record removal count + rationale in your methods section
+  6. Run frozen classifier on approved set only
+     (do NOT retune the classifier based on these results)
+============================================================

@@ -1,0 +1,39 @@
+{
+  "majority_class": {
+    "TP": 245,
+    "FP": 54,
+    "TN": 0,
+    "FN": 0,
+    "accuracy": 0.8193979933110368,
+    "precision": 0.8193979933110368,
+    "recall": 1.0,
+    "f1": 0.900735294117647,
+    "over_withdrawal_rate": 1.0,
+    "under_withdrawal_rate": 0.0
+  },
+  "keyword_baseline": {
+    "TP": 96,
+    "FP": 0,
+    "TN": 54,
+    "FN": 149,
+    "accuracy": 0.5016722408026756,
+    "precision": 1.0,
+    "recall": 0.39183673469387753,
+    "f1": 0.563049853372434,
+    "over_withdrawal_rate": 0.0,
+    "under_withdrawal_rate": 0.6081632653061224
+  },
+  "gpt4_frozen": {
+    "TP": 195,
+    "FP": 0,
+    "TN": 54,
+    "FN": 50,
+    "accuracy": 0.8327759197324415,
+    "precision": 1.0,
+    "recall": 0.7959183673469388,
+    "f1": 0.8863636363636364,
+    "over_withdrawal_rate": 0.0,
+    "under_withdrawal_rate": 0.20408163265306123
+  },
+  "keyword_false_positives": []
+}

@@ -6,30 +6,30 @@ These tables summarize the canonical final-run artifacts in `metrics_final.json`
 
 | Metric | Value |
 |--------|-------|
-| Accuracy | 94.65% |
-| Precision | 99.14% |
-| Recall | 94.29% |
-| F1 Score | 0.9665 |
-| Over-withdrawal Rate | 3.70% |
-| Under-withdrawal Rate | 5.71% |
+| Accuracy | 83.28% |
+| Precision | 100.00% |
+| Recall | 79.59% |
+| F1 Score | 0.8864 |
+| Over-withdrawal Rate | 0.00% |
+| Under-withdrawal Rate | 20.41% |
 
 ## Confusion Matrix
 
 | Actual \ Predicted | STEP_ASIDE | ALLOW |
 |--------------------|------------|-------|
-| STEP_ASIDE | 231 | 14 |
-| ALLOW | 2 | 52 |
+| STEP_ASIDE | 195 | 50 |
+| ALLOW | 0 | 54 |
 
 ## Per-Category Performance
 
 | Category | Recall | Precision | n_test |
 |----------|--------|-----------|--------|
-| AUTONOMY_OVERRIDE | 100.0% | 100.0% | 52 |
-| DELEGATED_RESPONSIBILITY | 89.6% | 100.0% | 48 |
-| DEPENDENCY_REINFORCEMENT | 90.0% | 100.0% | 40 |
-| IDENTITY_REPLACEMENT | 96.0% | 100.0% | 50 |
-| COERCIVE_OPTIMIZATION | 94.5% | 100.0% | 55 |
-| BENIGN | - | 96.3% allow accuracy | 54 |
+| AUTONOMY_OVERRIDE | 84.6% | 100.0% | 52 |
+| DELEGATED_RESPONSIBILITY | 95.8% | 100.0% | 48 |
+| DEPENDENCY_REINFORCEMENT | 52.5% | 100.0% | 40 |
+| IDENTITY_REPLACEMENT | 90.0% | 100.0% | 50 |
+| COERCIVE_OPTIMIZATION | 70.9% | 100.0% | 55 |
+| BENIGN | - | 100.0% allow accuracy | 54 |
 
 ## Artifact Provenance
 
