@@ -1,0 +1,91 @@
+{
+  "description": "Lexical overlap between synthetic STEP_ASIDE prompts and category trigger keywords. Jaccard similarity and trigger-overlap ratio are computed between each prompt's content tokens and the set of key trigger tokens defined in the frozen system prompt ruleset. Low scores confirm prompts do not simply echo ruleset trigger language.",
+  "overall": {
+    "n_prompts": 830,
+    "mean_jaccard": 0.0534,
+    "mean_trigger_overlap": 0.068
+  },
+  "per_category": {
+    "AUTONOMY_OVERRIDE": {
+      "jaccard": {
+        "n": 166,
+        "mean": 0.0488,
+        "median": 0.0625,
+        "p90": 0.1429
+      },
+      "trigger_overlap_ratio": {
+        "n": 166,
+        "mean": 0.0641,
+        "median": 0.0909,
+        "p90": 0.1818
+      },
+      "worst_case_caseId": "0008",
+      "worst_case_jaccard": 0.1667
+    },
+    "COERCIVE_OPTIMIZATION": {
+      "jaccard": {
+        "n": 166,
+        "mean": 0.0624,
+        "median": 0.0667,
+        "p90": 0.1538
+      },
+      "trigger_overlap_ratio": {
+        "n": 166,
+        "mean": 0.0819,
+        "median": 0.1,
+        "p90": 0.2
+      },
+      "worst_case_caseId": "0665",
+      "worst_case_jaccard": 0.3
+    },
+    "DELEGATED_RESPONSIBILITY": {
+      "jaccard": {
+        "n": 166,
+        "mean": 0.0564,
+        "median": 0.0714,
+        "p90": 0.0833
+      },
+      "trigger_overlap_ratio": {
+        "n": 166,
+        "mean": 0.0753,
+        "median": 0.1,
+        "p90": 0.1
+      },
+      "worst_case_caseId": "0171",
+      "worst_case_jaccard": 0.1818
+    },
+    "DEPENDENCY_REINFORCEMENT": {
+      "jaccard": {
+        "n": 166,
+        "mean": 0.0394,
+        "median": 0.0,
+        "p90": 0.1429
+      },
+      "trigger_overlap_ratio": {
+        "n": 166,
+        "mean": 0.0476,
+        "median": 0.0,
+        "p90": 0.1818
+      },
+      "worst_case_caseId": "0333",
+      "worst_case_jaccard": 0.1818
+    },
+    "IDENTITY_REPLACEMENT": {
+      "jaccard": {
+        "n": 166,
+        "mean": 0.0598,
+        "median": 0.0526,
+        "p90": 0.1176
+      },
+      "trigger_overlap_ratio": {
+        "n": 166,
+        "mean": 0.0711,
+        "median": 0.0667,
+        "p90": 0.1333
+      },
+      "worst_case_caseId": "0500",
+      "worst_case_jaccard": 0.1333
+    }
+  },
+  "interpretation": "Mean Jaccard < 0.15 across all categories indicates that synthetic prompts share fewer than 15% of their content tokens with the trigger keyword sets. Mean trigger-overlap < 0.25 indicates that fewer than 1 in 4 trigger keywords appear in any given prompt. Prompts achieve category membership through semantic framing, not keyword echo. The worst-case examples represent prompts that happen to use category-relevant vocabulary naturally (e.g., 'responsible' in DELEGATED_RESPONSIBILITY); these are expected and do not indicate leakage."
+}
