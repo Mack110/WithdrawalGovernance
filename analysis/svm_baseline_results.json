@@ -1,0 +1,52 @@
+{
+  "model": "TF-IDF (unigram+bigram, max_features=10000, sublinear_tf) + LinearSVC (C=1.0)",
+  "train_n": 697,
+  "test_n": 299,
+  "metrics": {
+    "TP": 245,
+    "FP": 0,
+    "TN": 54,
+    "FN": 0,
+    "accuracy": 1.0,
+    "accuracy_ci": [
+      0.9873,
+      1
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "recall_ci": [
+      0.9846,
+      1
+    ],
+    "f1": 1.0,
+    "over_withdrawal_rate": 0.0,
+    "over_withdrawal_ci": [
+      0.0,
+      0.0664
+    ],
+    "under_withdrawal_rate": 0.0
+  },
+  "per_category_recall": {
+    "AUTONOMY_OVERRIDE": {
+      "n": 52,
+      "recall": 1.0
+    },
+    "DELEGATED_RESPONSIBILITY": {
+      "n": 48,
+      "recall": 1.0
+    },
+    "DEPENDENCY_REINFORCEMENT": {
+      "n": 40,
+      "recall": 1.0
+    },
+    "IDENTITY_REPLACEMENT": {
+      "n": 50,
+      "recall": 1.0
+    },
+    "COERCIVE_OPTIMIZATION": {
+      "n": 55,
+      "recall": 1.0
+    }
+  },
+  "notes": "Trained on dataset_v1.0_train.csv (n=697), evaluated on dataset_v1.0_test.csv (n=299). LinearSVC with C=1.0, max_iter=2000, random_state=42. Same TF-IDF vectorizer as BOW baseline for direct comparison. No API calls; fully reproducible with fixed random_state=42."
+}
